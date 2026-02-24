@@ -182,3 +182,237 @@
 // }
 
 
+// 13.wap to print star right angled trinagle
+
+//  #include <iostream>
+// using namespace std;
+
+// class RightTriangle {
+//     int n;
+// public:
+//     RightTriangle(int rows) {
+//         n = rows;
+//     }
+
+//     void display() {
+//         for(int i = 1; i <= n; i++) {
+//             for(int j = 1; j <= i; j++) {
+//                 cout << "* ";
+//             }
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     int rows;
+//     cout << "Enter number of rows: ";
+//     cin >> rows;
+
+//     RightTriangle obj(rows);
+//     obj.display();
+
+//     return 0;
+// }
+
+
+
+// 14.wap to print pyramid of star
+
+// #include <iostream>
+// using namespace std;
+
+// class Pyramid {
+//     int n;
+// public:
+//     Pyramid(int rows) {
+//         n = rows;
+//     }
+
+//     void display() {
+//         for(int i = 1; i <= n; i++) {
+//             for(int space = 1; space <= n-i; space++)
+//                 cout << " ";
+
+//             for(int star = 1; star <= (2*i-1); star++)
+//                 cout << "*";
+
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     int rows;
+//     cout << "Enter number of rows: ";
+//     cin >> rows;
+
+//     Pyramid obj(rows);
+//     obj.display();
+
+//     return 0;
+// }
+
+
+ 
+// 15.wap to print star upside down pyramid
+
+// #include <iostream>
+// using namespace std;
+
+// class InvertedPyramid {
+//     int n;
+// public:
+//     InvertedPyramid(int rows) {
+//         n = rows;
+//     }
+
+//     void display() {
+//         for(int i = n; i >= 1; i--) {
+//             for(int space = 1; space <= n-i; space++)
+//                 cout << " ";
+
+//             for(int star = 1; star <= (2*i-1); star++)
+//                 cout << "*";
+
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     int rows;
+//     cout << "Enter number of rows: ";
+//     cin >> rows;
+
+//     InvertedPyramid obj(rows);
+//     obj.display();
+
+//     return 0;
+// }
+
+
+ 
+// 16.wap to print star diamond
+
+// #include <iostream>
+// using namespace std;
+
+// class Diamond {
+//     int n;
+// public:
+//     Diamond(int rows) {
+//         n = rows;
+//     }
+
+//     void display() {
+      
+//         for(int i = 1; i <= n; i++) {
+//             for(int space = 1; space <= n-i; space++)
+//                 cout << " ";
+
+//             for(int star = 1; star <= (2*i-1); star++)
+//                 cout << "*";
+
+//             cout << endl;
+//         }
+
+       
+//         for(int i = n-1; i >= 1; i--) {
+//             for(int space = 1; space <= n-i; space++)
+//                 cout << " ";
+
+//             for(int star = 1; star <= (2*i-1); star++)
+//                 cout << "*";
+
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     int rows;
+//     cout << "Enter number of rows: ";
+//     cin >> rows;
+
+//     Diamond obj(rows);
+//     obj.display();
+
+//     return 0;
+// }
+
+
+ 
+// 17.wap to print reverse a string
+
+
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// class ReverseString {
+//     string str;
+// public:
+//     ReverseString(string s) {
+//         str = s;
+//     }
+
+//     void reverse() {
+//         for(int i = str.length()-1; i >= 0; i--)
+//             cout << str[i];
+//     }
+// };
+
+// int main() {
+//     string input;
+//     cout << "Enter string: ";
+//     cin >> input;
+
+//     ReverseString obj(input);
+//     obj.reverse();
+
+//     return 0;
+// }
+
+
+
+ 
+// 18.wap to print check for pallindrome
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Palindrome {
+//     int num;
+// public:
+//     Palindrome(int n) {
+//         num = n;
+//     }
+
+//     void check() {
+//         int temp = num, rev = 0, remainder;
+
+//         while(temp != 0) {
+//             remainder = temp % 10;
+//             rev = rev * 10 + remainder;
+//             temp /= 10;
+//         }
+
+//         if(rev == num)
+//             cout << "Palindrome number";
+//         else
+//             cout << "Not a palindrome number";
+//     }
+// };
+
+// int main() {
+//     int number;
+//     cout << "Enter number: ";
+//     cin >> number;
+
+//     Palindrome obj(number);
+//     obj.check();
+
+//     return 0;
+// }
