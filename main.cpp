@@ -1202,3 +1202,1626 @@
 //     obj.display(arr, size);
 //     return 0;
 // }
+
+// 40.// Develop a module where input is given by user about student's
+//  detail which include student's ID, name, marks of five subjects. 
+//  Calculate and display total marks, percentage and grade of student.
+
+// #include <iostream>
+// #include <string.h>
+// using namespace std;
+// class Student{
+// public:
+//         int ID;
+//         string name;
+//         int marks[5];
+//         int total_marks = 0;
+//         float percentage;
+//         char grade;
+//      void input(){
+//         cout<<"enter the ID of Student: ";
+//         cin>>ID;
+//         cout<<"Enter the name of the student: ";
+//         cin>>name;
+//         cout<<"Enter the marks of the student: ";
+//         for(int i = 0;i<5;i++){
+//             cin>>marks[i];
+//             total_marks = total_marks + marks[i];
+//         }
+//      }
+//      void calculate(){
+//         percentage = (total_marks/500.0)*100.0;
+//         if(percentage<=100 && percentage>=90){
+//             grade = 'O';
+//         }
+//         else if(percentage<90 && percentage>=80)
+//         {grade = 'A';}
+//         else if(percentage<80 && percentage>=70)
+//         {grade = 'B';}
+//         else if(percentage<70 && percentage>=60)
+//         {grade = 'C';}
+//         else if(percentage<60 && percentage>=50)
+//         {grade = 'D';}
+//         else if(percentage<50 && percentage>=40)
+//         {grade = 'E';}
+    
+//         else if(percentage<40 && percentage>=0)
+//         {grade = 'F';}
+//         else
+//         {cout<<"Invalid marks...";}
+//      }
+//      void display(){
+//         cout<<"The ID of the student is: "<<ID<<endl;
+//         cout<<"The name of the student is:"<<name<<endl;
+//         cout<<"The marks of the student is:";
+//         for(int i =0;i<5;i++){
+//             cout<<" "<<marks[i];
+//         }cout<<endl;
+//         cout<<"the percentage of the student:"<<percentage<<"%"<<endl;
+//         cout <<"The grade of the student is :"<<grade<<endl;
+//      }
+// };
+// int main(){
+// Student s1;//default constructor
+// s1.input();
+// s1.calculate();
+// s1.display();
+// return 0;
+// }
+
+// 41.wap for creating a banking system using encapsulation
+//banking system
+// #include <iostream>
+// #include <string>
+// using namespace std;
+// class BankAccout{
+// private:
+//       string account_holder;
+//       int account_number;
+//       double bank_balance;
+// public:
+//       bool isvalid(){
+//        return bank_balance>0;
+//        }
+//        BankAccout(string name,long number,double balance){
+//            account_holder = name;
+//            account_number = number;
+//            if(isvalid())
+//            {bank_balance = balance;}
+//            else{bank_balance = 0;}
+//        }
+//        void deposit(double amt){
+//              if(amt>0){
+//               bank_balance + amt;
+//               cout<<"the amount you have deposited: Rs."<<amt;
+//               cout<<"BANK BALANCE: Rs."<<bank_balance; }
+//               else{
+//                cout<<"ERROR........";
+//               }
+      
+//        }
+//        void withdraw(double amt){
+//       if(amt>0 && bank_balance>=amt){
+//         bank_balance= bank_balance-amt;
+//          cout<<"the amount you have withdrawn: Rs."<<amt;
+//        cout<<"BANK BALANCE: Rs."<<bank_balance; }
+//       }
+//       else{
+//           cout<<"ERROR........";
+//       }
+//     void display(){
+//       cout<<"the name of the account Holder: "<<account_holder;
+//       cout<<"the name of the account number: "<<account_number;
+//       cout<<"the bank balance:Rs. "<<bank_balance;
+//     }
+
+//        };
+// int main(){
+// BankAccout B1("Rizul",12345678,100000000000);
+// B1.display();
+
+
+//   return 0;
+// }
+
+// 42.create an atm system using concept of encapsulation which has following
+// develop an atm system which includes the following:
+// acc no.
+// pin number
+// bal
+//withdraw
+// authenticator
+
+// #include <iostream>
+// using  namespace std;
+// class ATM{
+// private:
+//      long accno;
+//      int PIN;
+//      double balance;
+// public:
+//       bool isvalidpin(int pin){
+//             if(pin == PIN)
+//               return true;
+//               else
+//                 return false;  
+//       }
+     
+//      ATM(long acc_number,int pin,double balance_){
+//            accno = acc_number;
+//            PIN = pin;
+//            balance = balance_;
+//      }
+//      void checkbalance(){
+//       cout<<"Rs."<< balance;
+//      }
+//      void withdraw(double amt){
+//       cout<<"enter your account pin";
+//       cin>>PIN;
+//       if(isvalidpin(PIN)){
+//          if(amt > 0&&amt<= balance)
+//           {
+//              balance = balance - amt;
+//            cout<<"THE AMMOUNT WITHDRAWN:Rs "<<amt<<endl;
+//            cout<<"THE AMMOUNT :Rs "<<balance<<endl;
+//           }
+
+//            else{
+//             cout<<"in valid ammount";
+//            }
+//       }
+//       else{
+//          cout<<"wrong pin";
+//       }
+//      }
+// };
+// int main(){
+//    ATM a1(23, 1234, 1234567);
+//    a1.withdraw(5);
+//    a1.checkbalance();
+
+//    return 0;
+// }
+
+
+//43. wap to enter an element in between of an array
+// #include <iostream>
+// using namespace std;
+
+// class ArrayInsert {
+// public:
+//     void insertElement() {
+//         int arr[100], n, pos, value;
+
+//         cout<<"Enter number of elements: ";
+//         cin>>n;
+
+//         cout<<"Enter elements:\n";
+//         for(int i=0;i<n;i++)
+//             cin>>arr[i];
+
+//         cout<<"Enter position to insert: ";
+//         cin>>pos;
+
+//         cout<<"Enter value: ";
+//         cin>>value;
+
+//         for(int i=n;i>=pos;i--)
+//             arr[i]=arr[i-1];
+
+//         arr[pos-1]=value;
+//         n++;
+
+//         cout<<"Array after insertion:\n";
+//         for(int i=0;i<n;i++)
+//             cout<<arr[i]<<" ";
+//     }
+// };
+
+// int main(){
+//     ArrayInsert obj;
+//     obj.insertElement();
+// }
+// 44.wap to delete a particular element in a given array
+// #include <iostream>
+// using namespace std;
+
+// class ArrayDelete {
+// public:
+//     void deleteElement() {
+//         int arr[100], n, value, pos=-1;
+
+//         cout<<"Enter size: ";
+//         cin>>n;
+
+//         cout<<"Enter elements:\n";
+//         for(int i=0;i<n;i++)
+//             cin>>arr[i];
+
+//         cout<<"Enter element to delete: ";
+//         cin>>value;
+
+//         for(int i=0;i<n;i++){
+//             if(arr[i]==value){
+//                 pos=i;
+//                 break;
+//             }
+//         }
+
+//         if(pos==-1){
+//             cout<<"Element not found";
+//             return;
+//         }
+
+//         for(int i=pos;i<n-1;i++)
+//             arr[i]=arr[i+1];
+
+//         n--;
+
+//         cout<<"Array after deletion:\n";
+//         for(int i=0;i<n;i++)
+//             cout<<arr[i]<<" ";
+//     }
+// };
+
+// int main(){
+//     ArrayDelete obj;
+//     obj.deleteElement();
+// }
+
+
+// 45.wap a program to sort an array in ascending order
+// #include <iostream>
+// using namespace std;
+
+// class SortAscending {
+// public:
+//     void sortArray() {
+//         int arr[100], n;
+
+//         cout<<"Enter size: ";
+//         cin>>n;
+
+//         cout<<"Enter elements:\n";
+//         for(int i=0;i<n;i++)
+//             cin>>arr[i];
+
+//         for(int i=0;i<n-1;i++)
+//             for(int j=i+1;j<n;j++)
+//                 if(arr[i]>arr[j])
+//                     swap(arr[i],arr[j]);
+
+//         cout<<"Ascending order:\n";
+//         for(int i=0;i<n;i++)
+//             cout<<arr[i]<<" ";
+//     }
+// };
+
+// int main(){
+//     SortAscending obj;
+//     obj.sortArray();
+// }
+
+
+// 46.wap to sort an array in descending order
+// #include <iostream>
+// using namespace std;
+
+// class SortDescending {
+// public:
+//     void sortArray() {
+//         int arr[100], n;
+
+//         cout<<"Enter size: ";
+//         cin>>n;
+
+//         cout<<"Enter elements:\n";
+//         for(int i=0;i<n;i++)
+//             cin>>arr[i];
+
+//         for(int i=0;i<n-1;i++)
+//             for(int j=i+1;j<n;j++)
+//                 if(arr[i]<arr[j])
+//                     swap(arr[i],arr[j]);
+
+//         cout<<"Descending order:\n";
+//         for(int i=0;i<n;i++)
+//             cout<<arr[i]<<" ";
+//     }
+// };
+
+// int main(){
+//     SortDescending obj;
+//     obj.sortArray();
+// }
+
+// 47.wap to print letters right triangle
+// #include <iostream>
+// using namespace std;
+
+// class RightTriangle {
+// public:
+//     void print(int n) {
+//         for(int i=1;i<=n;i++){
+//             for(int j=0;j<i;j++)
+//                 cout<<char('A'+j);
+//             cout<<endl;
+//         }
+//     }
+// };
+
+// int main(){
+//     RightTriangle obj;
+//     obj.print(5);
+// }
+
+
+// 48.wap to print hollow square
+// #include <iostream>
+// using namespace std;
+
+// class HollowSquare {
+// public:
+//     void print(int n) {
+//         for(int i=1;i<=n;i++){
+//             for(int j=1;j<=n;j++){
+//                 if(i==1||i==n||j==1||j==n)
+//                     cout<<"*";
+//                 else
+//                     cout<<" ";
+//             }
+//             cout<<endl;
+//         }
+//     }
+// };
+
+// int main(){
+//     HollowSquare obj;
+//     obj.print(5);
+// }
+// 49.wap to print hollow pyramid
+// #include <iostream>
+// using namespace std;
+
+// class HollowPyramid {
+// public:
+//     void print(int n) {
+//         for(int i=1;i<=n;i++){
+//             for(int j=i;j<n;j++)
+//                 cout<<" ";
+
+//             for(int j=1;j<=2*i-1;j++){
+//                 if(j==1||j==2*i-1||i==n)
+//                     cout<<"*";
+//                 else
+//                     cout<<" ";
+//             }
+//             cout<<endl;
+//         }
+//     }
+// };
+
+// int main(){
+//     HollowPyramid obj;
+//     obj.print(5);
+// }
+// 50.wap to print hollow diamond
+// #include <iostream>
+// using namespace std;
+
+// class HollowDiamond {
+// public:
+//     void print(int n) {
+
+//         for(int i=1;i<=n;i++){
+//             for(int j=i;j<n;j++) cout<<" ";
+
+//             for(int j=1;j<=2*i-1;j++){
+//                 if(j==1||j==2*i-1)
+//                     cout<<"*";
+//                 else
+//                     cout<<" ";
+//             }
+//             cout<<endl;
+//         }
+
+//         for(int i=n-1;i>=1;i--){
+//             for(int j=n;j>i;j--) cout<<" ";
+
+//             for(int j=1;j<=2*i-1;j++){
+//                 if(j==1||j==2*i-1)
+//                     cout<<"*";
+//                 else
+//                     cout<<" ";
+//             }
+//             cout<<endl;
+//         }
+//     }
+// };
+
+// int main(){
+//     HollowDiamond obj;
+//     obj.print(5);
+// }
+// 51.wap to print x star pattern
+// #include <iostream>
+// using namespace std;
+
+// class XPattern {
+// public:
+//     void print(int n){
+//         for(int i=1;i<=n;i++){
+//             for(int j=1;j<=n;j++){
+//                 if(j==i || j==n-i+1)
+//                     cout<<"*";
+//                 else
+//                     cout<<" ";
+//             }
+//             cout<<endl;
+//         }
+//     }
+// };
+
+// int main(){
+//     XPattern obj;
+//     obj.print(5);
+// }
+// 52.wap to print binary triangle
+// #include <iostream>
+// using namespace std;
+
+// class BinaryTriangle {
+// public:
+//     void print(int n){
+//         for(int i=1;i<=n;i++){
+//             for(int j=1;j<=i;j++){
+//                 cout<<(i+j)%2;
+//             }
+//             cout<<endl;
+//         }
+//     }
+// };
+
+// int main(){
+//     BinaryTriangle obj;
+//     obj.print(5);
+// }
+// 53.wap to print star butterfly
+// #include <iostream>
+// using namespace std;
+
+// class Butterfly {
+// public:
+//     void print(int n){
+
+//         for(int i=1;i<=n;i++){
+
+//             for(int j=1;j<=i;j++)
+//                 cout<<"*";
+
+//             for(int j=1;j<=2*(n-i);j++)
+//                 cout<<" ";
+
+//             for(int j=1;j<=i;j++)
+//                 cout<<"*";
+
+//             cout<<endl;
+//         }
+
+//         for(int i=n;i>=1;i--){
+
+//             for(int j=1;j<=i;j++)
+//                 cout<<"*";
+
+//             for(int j=1;j<=2*(n-i);j++)
+//                 cout<<" ";
+
+//             for(int j=1;j<=i;j++)
+//                 cout<<"*";
+
+//             cout<<endl;
+//         }
+//     }
+// };
+
+// int main(){
+//     Butterfly obj;
+//     obj.print(5);
+// }
+// 54.wap to check for a perfect number
+// #include <iostream>
+// using namespace std;
+
+// class PerfectNumber {
+// public:
+//     void check(int num){
+
+//         int sum=0;
+
+//         for(int i=1;i<=num/2;i++){
+//             if(num%i==0)
+//                 sum+=i;
+//         }
+
+//         if(sum==num)
+//             cout<<"Perfect Number";
+//         else
+//             cout<<"Not Perfect Number";
+//     }
+// };
+
+// int main(){
+//     PerfectNumber obj;
+//     int n;
+
+//     cout<<"Enter number: ";
+//     cin>>n;
+
+//     obj.check(n);
+// }
+// 55. wap to check for prime number
+// #include <iostream>
+// using namespace std;
+
+// class Prime{
+//     int n;
+
+// public:
+//     void input(){
+//         cout<<"Enter number: ";
+//         cin>>n;
+//     }
+
+//     void check(){
+//         int flag=0;
+
+//         for(int i=2;i<n;i++){
+//             if(n%i==0){
+//                 flag=1;
+//                 break;
+//             }
+//         }
+
+//         if(flag==0)
+//             cout<<"Prime Number";
+//         else
+//             cout<<"Not Prime";
+//     }
+// };
+
+// int main(){
+//     Prime p;
+//     p.input();
+//     p.check();
+// return 0;
+// }
+
+//56. wap to create a linked list:
+// #include<iostream>
+// using namespace std;
+// class node{
+//      public:
+//           int data;   
+//          node* next;
+//          node(int value){
+//             // data = value;  
+//             next = nullptr;
+//          }
+//          void display(node* head){
+//           node* p = head;
+//           while(p)     
+//           {             
+//             cout<<p->data<<"->";
+//             p = p->next;  
+//           }
+//          }
+// };
+//   void display(node* head){
+//           node* p = head;
+//           while(p)     
+//           {             
+//             cout<<p->data<<"->";
+//             p = p->next;  
+//           }
+//          }
+// int main(){
+//     node* n1,*n2,*n3;
+//     n1 = new node(10);
+//     n2 = new node(20);
+//     n3 = new node(30);
+//     n1->next = n2;
+//     n2->next =n3;
+//     display(n1);
+// }
+
+
+
+// 57. wap to insert an element at the start of the linked list
+// #include<iostream>
+// using namespace std;
+// class node{
+//  public:
+//            int data;
+//            node*next;
+//         node(int value){
+//             data = value;
+//             next = nullptr;
+//         }
+//         node* insertatstart(node* head,int value){
+//             node*p = new node(value);
+//             p->next = head;
+//             head = p;
+//             return head;
+//         }
+// };
+//  int main(){
+//     node* n1,*n2,*n3,*n;
+//     n1 = new node(10);
+//     n2 = new node(20);
+//     n3 = new node(30);
+//     n1->next = n2;
+//     n2->next =n3;
+//     n1 = insertatstart(n1,90);
+//     return 0;
+//  }                      
+// 58. wap to insert an element at the end of the linked lis
+// #include<iostream>
+// using namespace std;
+
+
+// class node{
+//  public:
+//            int data;
+//            node*next;
+//         node(int value){
+//             data = value;
+//             next = nullptr;
+//         }
+//        node* insertatend(node* head,int value){
+//         node * n = new node(value);
+//         node* p = head;
+//         while(p->next != nullptr){
+//             p = p->next; }
+//         p->next =n;         
+//        }
+
+//     };
+//         int main(){
+//     node* n1,*n2,*n3,*n;
+//     n1 = new node(10);
+//     n2 = new node(20);
+//     n3 = new node(30);
+//     n1->next = n2;
+//     n2->next =n3;
+//     n1 = n1->insertatend(n1,90);
+//     return 0;
+//  }   
+
+//  59. wap to insert before an element in a linked list
+// #include <iostream>
+// using namespace std;
+
+// class Node {
+// public:
+//     int data;
+//     Node* next;
+// };
+
+// class LinkedList {
+// private:
+//     Node* head;
+
+// public:
+//     LinkedList() {
+//         head = NULL;
+//     }
+
+//     void insertEnd(int value) {
+//         Node* newNode = new Node();
+//         newNode->data = value;
+//         newNode->next = NULL;
+
+//         if(head == NULL) {
+//             head = newNode;
+//             return;
+//         }
+
+//         Node* temp = head;
+//         while(temp->next != NULL)
+//             temp = temp->next;
+
+//         temp->next = newNode;
+//     }
+
+//     void insertBefore(int target, int value) {
+
+//         if(head == NULL) {
+//             cout<<"List is empty\n";
+//             return;
+//         }
+
+//         if(head->data == target) {
+//             Node* newNode = new Node();
+//             newNode->data = value;
+//             newNode->next = head;
+//             head = newNode;
+//             return;
+//         }
+
+//         Node* temp = head;
+
+//         while(temp->next != NULL && temp->next->data != target)
+//             temp = temp->next;
+
+//         if(temp->next == NULL) {
+//             cout<<"Target not found\n";
+//             return;
+//         }
+
+//         Node* newNode = new Node();
+//         newNode->data = value;
+//         newNode->next = temp->next;
+//         temp->next = newNode;
+//     }
+
+//     void display() {
+//         Node* temp = head;
+//         while(temp != NULL) {
+//             cout<<temp->data<<" -> ";
+//             temp = temp->next;
+//         }
+//         cout<<"NULL\n";
+//     }
+// };
+
+// int main() {
+
+//     LinkedList list;
+
+//     list.insertEnd(10);
+//     list.insertEnd(20);
+//     list.insertEnd(30);
+//     list.insertEnd(40);
+
+//     cout<<"Original List:\n";
+//     list.display();
+
+//     list.insertBefore(30,25);
+//  
+//     list.display();
+// return 0;
+// }
+
+
+
+// 60.wap to delete an element at the start of a linked list
+// #include <iostream>
+// using namespace std;
+// class node{
+// public:
+//     int data;
+//     node* next;
+//     node(int value){
+//     data = value;
+//     next = nullptr;
+// }
+// node* deleteatstart(node* head){
+//         node* p = head;
+//         head = head->next;
+//         delete p;
+//         return head;}
+// };                               
+//       int main(){
+//     node* n1,*n2,*n3,*n;
+//     n1 = new node(10);
+//     n2 = new node(20);
+//     n3 = new node(30);
+//     n1->next = n2;
+//     n2->next =n3;
+//     n1 = n1->deleteatstart(n1);
+//     return 0;}
+
+// 61.wap to delete an element at the end of a linked list
+// #include <iostream>
+// using namespace std;
+// class node{
+// public:
+//     int data;
+//     node* next;
+//     node(int value){
+//     data = value;
+//     next = nullptr;
+// }
+// node* deleteatend(node* head){
+//         node* p = head;
+//         while(p->next->next != nullptr){
+//             p = p->next; }
+        
+//         delete p->next;
+//          p->next = nullptr;   
+//         return head;}        
+// };
+//       int main(){
+//     node* n1,*n2,*n3,*n;
+//     n1 = new node(10);
+//     n2 = new node(20);
+//     n3 = new node(30);
+//     n1->next = n2;
+//     n2->next =n3;
+//     n1 = n1->deleteatend(n1);
+//     return 0;}
+
+
+// 62.wap to delete before an element in a linked list
+// #include <iostream>
+// using namespace std;
+
+// class Node {
+// public:
+//     int data;
+//     Node* next;
+// };
+
+// class LinkedList {
+// private:
+//     Node* head;
+
+// public:
+//     LinkedList() {
+//         head = NULL;
+//     }
+
+//     void insertEnd(int value) {
+//         Node* newNode = new Node();
+//         newNode->data = value;
+//         newNode->next = NULL;
+
+//         if(head == NULL) {
+//             head = newNode;
+//             return;
+//         }
+
+//         Node* temp = head;
+//         while(temp->next != NULL)
+//             temp = temp->next;
+
+//         temp->next = newNode;
+//     }
+
+//     void deleteBefore(int target) {
+
+//         if(head == NULL || head->next == NULL) {
+//             cout<<"Not enough nodes\n";
+//             return;
+//         }
+
+//         if(head->next->data == target) {
+//             Node* temp = head;
+//             head = head->next;
+//             delete temp;
+//             return;
+//         }
+
+//         Node* temp = head;
+
+//         while(temp->next->next != NULL && temp->next->next->data != target)
+//             temp = temp->next;
+
+//         if(temp->next->next == NULL) {
+//             cout<<"Target not found\n";
+//             return;
+//         }
+
+//         Node* del = temp->next;
+//         temp->next = del->next;
+//         delete del;
+//     }
+
+//     void display() {
+//         Node* temp = head;
+//         while(temp != NULL) {
+//             cout<<temp->data<<" -> ";
+//             temp = temp->next;
+//         }
+//         cout<<"NULL\n";
+//     }
+// };
+
+// int main() {
+
+//     LinkedList list;
+
+//     list.insertEnd(10);
+//     list.insertEnd(20);
+//     list.insertEnd(30);
+//     list.insertEnd(40);
+
+//     cout<<"Original List:\n";
+//     list.display();
+
+//     list.deleteBefore(30);
+
+//     cout<<"After Deleting Before 30:\n";
+//     list.display();
+// return 0
+// }
+
+
+
+// 63.wap to search for an element in a linked list
+// #include <iostream>
+// using namespace std;
+
+// class Node {
+// public:
+//     int data;
+//     Node* next;
+// };
+
+// class LinkedList {
+// private:
+//     Node* head;
+
+// public:
+//     LinkedList() {
+//         head = NULL;
+//     }
+
+//     void insertEnd(int value) {
+//         Node* newNode = new Node();
+//         newNode->data = value;
+//         newNode->next = NULL;
+
+//         if(head == NULL) {
+//             head = newNode;
+//             return;
+//         }
+
+//         Node* temp = head;
+
+//         while(temp->next != NULL)
+//             temp = temp->next;
+
+//         temp->next = newNode;
+//     }
+
+//     void search(int key) {
+
+//         Node* temp = head;
+//         int position = 1;
+
+//         while(temp != NULL) {
+
+//             if(temp->data == key) {
+//                 cout<<"Element found at position "<<position<<endl;
+//                 return;
+//             }
+
+//             temp = temp->next;
+//             position++;
+//         }
+
+//         cout<<"Element not found"<<endl;
+//     }
+
+//     void display() {
+//         Node* temp = head;
+
+//         while(temp != NULL) {
+//             cout<<temp->data<<" -> ";
+//             temp = temp->next;
+//         }
+
+//         cout<<"NULL"<<endl;
+//     }
+// };
+
+// int main() {
+
+//     LinkedList list;
+
+//     list.insertEnd(10);
+//     list.insertEnd(20);
+//     list.insertEnd(30);
+//     list.insertEnd(40);
+
+//     cout<<"Linked List:"<<endl;
+//     list.display();
+
+//     int key;
+//     cout<<"Enter element to search: ";
+//     cin>>key;
+
+//     list.search(key);
+
+//     return 0;
+// }
+
+// 64.wap to reverse a linked list
+// #include <iostream>
+// using namespace std;
+
+// class Node {
+// public:
+//     int data;
+//     Node* next;
+
+//     Node(int val) {
+//         data = val;
+//         next = NULL;
+//     }
+// };
+
+// class LinkedList {
+// private:
+//     Node* head;
+
+// public:
+//     LinkedList() {
+//         head = NULL;
+//     }
+
+//     void insert(int val) {
+//         Node* newNode = new Node(val);
+//         if (!head) {
+//             head = newNode;
+//             return;
+//         }
+//         Node* temp = head;
+//         while (temp->next)
+//             temp = temp->next;
+//         temp->next = newNode;
+//     }
+
+//     void reverse() {
+//         Node* prev = NULL;
+//         Node* curr = head;
+//         Node* next = NULL;
+
+//         while (curr != NULL) {
+//             next = curr->next;   // store next node
+//             curr->next = prev;   // reverse link
+//             prev = curr;         // move prev forward
+//             curr = next;         // move curr forward
+//         }
+
+//         head = prev; // update head
+//     }
+
+//     void display() {
+//         Node* temp = head;
+//         while (temp) {
+//             cout << temp->data << " -> ";
+//             temp = temp->next;
+//         }
+//         cout << "NULL\n";
+//     }
+// };
+
+// int main() {
+//     LinkedList l;
+//     l.insert(10);
+//     l.insert(20);
+//     l.insert(30);
+//     l.insert(40);
+
+//     cout << "Original List:\n";
+//     l.display();
+
+//     l.reverse();
+
+//     cout << "Reversed List:\n";
+//     l.display();
+
+//     return 0;
+// }
+
+
+// 65.develop a library book issued system
+// #include <iostream>
+// using namespace std;
+
+// class Library {
+// private:
+//     int bookId;
+//     string bookName;
+//     bool issued;
+
+// public:
+//     // Constructor
+//     Library() {
+//         issued = false;
+//     }
+
+//     void addBook() {
+//         cout << "Enter Book ID and Name: ";
+//         cin >> bookId >> bookName;
+//         issued = false;
+//         cout << "Book added successfully\n";
+//     }
+
+//     void issueBook() {
+//         if(bookId == 0) {
+//             cout << "No book available\n";
+//             return;
+//         }
+
+//         if(!issued) {
+//             issued = true;
+//             cout << "Book issued successfully\n";
+//         } else {
+//             cout << "Book already issued\n";
+//         }
+//     }
+
+//     void returnBook() {
+//         if(bookId == 0) {
+//             cout << "No book exists\n";
+//             return;
+//         }
+
+//         if(issued) {
+//             issued = false;
+//             cout << "Book returned successfully\n";
+//         } else {
+//             cout << "Book was not issued\n";
+//         }
+//     }
+
+//     void displayStatus() {
+//         if(bookId == 0) {
+//             cout << "No book available\n";
+//             return;
+//         }
+
+//         cout << "\nBook ID: " << bookId;
+//         cout << "\nBook Name: " << bookName;
+//         cout << "\nStatus: " << (issued ? "Issued" : "Available") << endl;
+//     }
+// };
+
+// int main() {
+//     Library lib;
+//     int choice;
+
+//     do {
+//         cout << "\n----- LIBRARY MENU -----\n";
+//         cout << "1. Add Book\n";
+//         cout << "2. Issue Book\n";
+//         cout << "3. Return Book\n";
+//         cout << "4. Display Status\n";
+//         cout << "5. Exit\n";
+//         cout << "Enter choice: ";
+//         cin >> choice;
+
+//         switch(choice) {
+//             case 1: lib.addBook(); break;
+//             case 2: lib.issueBook(); break;
+//             case 3: lib.returnBook(); break;
+//             case 4: lib.displayStatus(); break;
+//         }
+
+//     } while(choice != 5);
+
+//     return 0;
+// }
+
+
+//66.develop a temperature convertor using c++
+// #include <iostream>
+// using namespace std;
+
+// class Temperature {
+// private:
+//     float value;  // encapsulated data
+
+// public:
+//     // Setter
+//     void setValue(float v) {
+//         value = v;
+//     }
+
+//     // Conversion functions
+//     float celsiusToFahrenheit() {
+//         return (value * 9 / 5) + 32;
+//     }
+
+//     float fahrenheitToCelsius() {
+//         return (value - 32) * 5 / 9;
+//     }
+
+//     float celsiusToKelvin() {
+//         return value + 273.15;
+//     }
+
+//     float kelvinToCelsius() {
+//         return value - 273.15;
+//     }
+
+//     // Display menu
+//     void menu() {
+//         cout << "\n--- Temperature Converter ---\n";
+//         cout << "1. Celsius to Fahrenheit\n";
+//         cout << "2. Fahrenheit to Celsius\n";
+//         cout << "3. Celsius to Kelvin\n";
+//         cout << "4. Kelvin to Celsius\n";
+//         cout << "5. Exit\n";
+//         cout << "Enter your choice: ";
+//     }
+// };
+
+// int main() {
+//     Temperature t;
+//     int choice;
+//     float input;
+
+//     do {
+//         t.menu();
+//         cin >> choice;
+
+//         switch (choice) {
+//         case 1:
+//             cout << "Enter temperature in Celsius: ";
+//             cin >> input;
+//             t.setValue(input);
+//             cout << "Fahrenheit = " << t.celsiusToFahrenheit() << endl;
+//             break;
+
+//         case 2:
+//             cout << "Enter temperature in Fahrenheit: ";
+//             cin >> input;
+//             t.setValue(input);
+//             cout << "Celsius = " << t.fahrenheitToCelsius() << endl;
+//             break;
+
+//         case 3:
+//             cout << "Enter temperature in Celsius: ";
+//             cin >> input;
+//             t.setValue(input);
+//             cout << "Kelvin = " << t.celsiusToKelvin() << endl;
+//             break;
+
+//         case 4:
+//             cout << "Enter temperature in Kelvin: ";
+//             cin >> input;
+//             t.setValue(input);
+//             cout << "Celsius = " << t.kelvinToCelsius() << endl;
+//             break;
+
+//         case 5:
+//             cout << "Exiting program...\n";
+//             break;
+
+//         default:
+//             cout << "Invalid choice! Try again.\n";
+//         }
+
+//     } while (choice != 5);
+
+//     return 0;
+// }
+
+// 67.wap to input and dislay a matrix
+// #include <iostream>
+// using namespace std;
+
+// class Matrix {
+// private:
+//     int a[10][10];
+//     int rows, cols;
+
+// public:
+//      Matrix(){
+//         cout<<"enter the no. of rows and columns";
+//         cin>>rows>>cols;
+//         for(int i=0;i<rows;i++)
+//             for(int j=0;j<cols;j++)
+//                 cin >> a[i][j];
+//      }
+
+
+
+//     void display() {
+//         cout << "\nResult Matrix:\n";
+//         for(int i=0;i<rows;i++) {
+//             for(int j=0;j<cols;j++)
+//                 cout << a[i][j] << " ";
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     Matrix m;
+//   m.display();
+//     return 0;
+// }
+// 68.wap to add two matrices
+
+// #include <iostream>
+// using namespace std;
+
+// class Matrix {
+// private:
+//     int a[10][10], b[10][10], result[10][10];
+//     int rows, cols;
+
+// public:
+//     void input() {
+//         cout << "Enter rows and columns: ";
+//         cin >> rows >> cols;
+
+//         cout << "Enter Matrix A:\n";
+//         for(int i=0;i<rows;i++)
+//             for(int j=0;j<cols;j++)
+//                 cin >> a[i][j];
+
+//         cout << "Enter Matrix B:\n";
+//         for(int i=0;i<rows;i++)
+//             for(int j=0;j<cols;j++)
+//                 cin >> b[i][j];
+//     }
+
+//     void add() {
+//         for(int i=0;i<rows;i++)
+//             for(int j=0;j<cols;j++)
+//                 result[i][j] = a[i][j] + b[i][j];
+//     }
+
+//     void display() {
+//         cout << "\nResult Matrix:\n";
+//         for(int i=0;i<rows;i++) {
+//             for(int j=0;j<cols;j++)
+//                 cout << result[i][j] << " ";
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     Matrix m;
+//     int choice;
+
+//     do {
+//         cout << "\n--- MATRIX MENU ---\n";
+//         cout << "1. Input Matrices\n";
+//         cout << "2. Add Matrices\n";
+//         cout << "3. Display Result\n";
+//         cout << "4. Exit\n";
+//         cout << "Enter choice: ";
+//         cin >> choice;
+
+//         switch(choice) {
+//             case 1: m.input(); break;
+//             case 2: m.add(); break;
+//             case 3: m.display(); break;
+//         }
+
+//     } while(choice != 4);
+
+//     return 0;
+// }
+
+// 69.WAP to multiply two matrices
+// #include <iostream>
+// using namespace std;
+
+// class Matrix {
+// private:
+//     int a[10][10], b[10][10], res[10][10];
+//     int r1,c1,r2,c2;
+
+// public:
+//     void input() {
+//         cout<<"Enter rows & cols of A: ";
+//         cin>>r1>>c1;
+//         cout<<"Enter Matrix A:\n";
+//         for(int i=0;i<r1;i++)
+//             for(int j=0;j<c1;j++)
+//                 cin>>a[i][j];
+
+//         cout<<"Enter rows & cols of B: ";
+//         cin>>r2>>c2;
+//         cout<<"Enter Matrix B:\n";
+//         for(int i=0;i<r2;i++)
+//             for(int j=0;j<c2;j++)
+//                 cin>>b[i][j];
+//     }
+
+//     void multiply() {
+//         if(c1!=r2) {
+//             cout<<"Multiplication not possible\n";
+//             return;
+//         }
+
+//         for(int i=0;i<r1;i++) {
+//             for(int j=0;j<c2;j++) {
+//                 res[i][j]=0;
+//                 for(int k=0;k<c1;k++)
+//                     res[i][j]+=a[i][k]*b[k][j];
+//             }
+//         }
+//         cout<<"Multiplication done\n";
+//     }
+
+//     void display() {
+//         for(int i=0;i<r1;i++) {
+//             for(int j=0;j<c2;j++)
+//                 cout<<res[i][j]<<" ";
+//             cout<<endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     Matrix m;
+//     int ch;
+//     do {
+//         cout<<"1.Input 2.Multiply 3.Display 4.Exit\n";
+//         cin>>ch;
+//         if(ch==1) m.input();
+//         else if(ch==2) m.multiply();
+//         else if(ch==3) m.display();
+//     } while(ch!=4);
+// }
+
+// 70.wap to perfor dot product on two vectors
+// #include <iostream>
+// using namespace std;
+
+// class Vector {
+// private:
+//     int a[10], b[10];
+//     int n;
+
+// public:
+//     void input() {
+//         cout << "Enter size of vectors: ";
+//         cin >> n;
+
+//         cout << "Enter elements of Vector A:\n";
+//         for(int i=0;i<n;i++)
+//             cin >> a[i];
+
+//         cout << "Enter elements of Vector B:\n";
+//         for(int i=0;i<n;i++)
+//             cin >> b[i];
+//     }
+
+//     void dotProduct() {
+//         int dot = 0;
+
+//         for(int i=0;i<n;i++)
+//             dot += a[i] * b[i];
+
+//         cout << "Dot Product = " << dot << endl;
+//     }
+
+//     void display() {
+//         cout << "Vector A: ";
+//         for(int i=0;i<n;i++) cout << a[i] << " ";
+
+//         cout << "\nVector B: ";
+//         for(int i=0;i<n;i++) cout << b[i] << " ";
+
+//         cout << endl;
+//     }
+// };
+
+// int main() {
+//     Vector v;
+//     int ch;
+
+//     do {
+//         cout << "\n--- VECTOR MENU ---\n";
+//         cout << "1. Input Vectors\n";
+//         cout << "2. Display Vectors\n";
+//         cout << "3. Dot Product\n";
+//         cout << "4. Exit\n";
+//         cout << "Enter choice: ";
+//         cin >> ch;
+
+//         switch(ch) {
+//             case 1: v.input(); break;
+//             case 2: v.display(); break;
+//             case 3: v.dotProduct(); break;
+//         }
+
+//     } while(ch != 4);
+
+//     return 0;
+// }
+
+
+// 71.wap to demonatrate inheritance
+// #include <iostream>
+// using namespace std;
+
+
+// class Student {
+// protected:
+//     int roll;
+//     string name;
+
+// public:
+//     void getStudent() {
+//         cout << "Enter Roll Number: ";
+//         cin >> roll;
+//         cout << "Enter Name: ";
+//         cin >> name;
+//     }
+
+//     void displayStudent() {
+//         cout << "\nRoll Number: " << roll;
+//         cout << "\nName: " << name;
+//     }
+// };
+
+
+// class Result : public Student {
+// private:
+//     int marks1, marks2, total;
+
+// public:
+//     void getMarks() {
+//         cout << "Enter Marks for Subject 1: ";
+//         cin >> marks1;
+//         cout << "Enter Marks for Subject 2: ";
+//         cin >> marks2;
+//     }
+
+//     void calculate() {
+//         total = marks1 + marks2;
+//     }
+
+//     void displayResult() {
+//         displayStudent();  
+//         cout << "\nMarks 1: " << marks1;
+//         cout << "\nMarks 2: " << marks2;
+//         cout << "\nTotal: " << total << endl;
+//     }
+// };
+
+
+// int main() {
+//     Result r;
+
+//     r.getStudent();
+//     r.getMarks();
+//     r.calculate();
+//     r.displayResult();
+
+//     return 0;
+// }
+
+// 72.wap to demonstrate inheritance using class
+// #include <iostream>
+// using namespace std;
+
+// class Calculator{
+// public:
+//     void add(int a,int b){
+//         cout<<"Sum = "<<a+b<<endl;
+//     }
+
+//     void sub(int a,int b){
+//         cout<<"Difference = "<<a-b<<endl;
+//     }
+
+//     void mul(int a,int b){
+//         cout<<"Product = "<<a*b<<endl;
+//     }
+
+//     void div(int a,int b){
+//         cout<<"Division = "<<a/b<<endl;
+//     }
+// };
+
+// int main(){
+//     Calculator c;
+
+//     c.add(10,5);
+//     c.sub(10,5);
+//     c.mul(10,5);
+//     c.div(10,5);
+// }
