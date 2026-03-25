@@ -217,15 +217,15 @@
 
 
 
-// 14.wap to print pyramid of star
+// 14.wap to print pyramiddle of star
 
 // #include <iostream>
 // using namespace std;
 
-// class Pyramid {
+// class Pyramiddle {
 //     int n;
 // public:
-//     Pyramid(int rows) {
+//     Pyramiddle(int rows) {
 //         n = rows;
 //     }
 
@@ -247,7 +247,7 @@
 //     cout << "Enter number of rows: ";
 //     cin >> rows;
 
-//     Pyramid obj(rows);
+//     Pyramiddle obj(rows);
 //     obj.display();
 
 //     return 0;
@@ -255,15 +255,15 @@
 
 
  
-// 15.wap to print star upside down pyramid
+// 15.wap to print star upside down pyramiddle
 
 // #include <iostream>
 // using namespace std;
 
-// class InvertedPyramid {
+// class InvertedPyramiddle {
 //     int n;
 // public:
-//     InvertedPyramid(int rows) {
+//     InvertedPyramiddle(int rows) {
 //         n = rows;
 //     }
 
@@ -285,7 +285,7 @@
 //     cout << "Enter number of rows: ";
 //     cin >> rows;
 
-//     InvertedPyramid obj(rows);
+//     InvertedPyramiddle obj(rows);
 //     obj.display();
 
 //     return 0;
@@ -1579,11 +1579,11 @@
 //     HollowSquare obj;
 //     obj.print(5);
 // }
-// 49.wap to print hollow pyramid
+// 49.wap to print hollow pyramiddle
 // #include <iostream>
 // using namespace std;
 
-// class HollowPyramid {
+// class HollowPyramiddle {
 // public:
 //     void print(int n) {
 //         for(int i=1;i<=n;i++){
@@ -1602,7 +1602,7 @@
 // };
 
 // int main(){
-//     HollowPyramid obj;
+//     HollowPyramiddle obj;
 //     obj.print(5);
 // }
 // 50.wap to print hollow diamond
@@ -1642,7 +1642,10 @@
 // int main(){
 //     HollowDiamond obj;
 //     obj.print(5);
+// return 0;
 // }
+
+
 // 51.wap to print x star pattern
 // #include <iostream>
 // using namespace std;
@@ -2794,35 +2797,577 @@
 //     return 0;
 // }
 
-// 72.wap to demonstrate inheritance using class
+// 72.Wap to  calculate a power of a number using recuursion
 // #include <iostream>
-// using namespace std;
-
-// class Calculator{
+// class Power {
 // public:
-//     void add(int a,int b){
-//         cout<<"Sum = "<<a+b<<endl;
-//     }
-
-//     void sub(int a,int b){
-//         cout<<"Difference = "<<a-b<<endl;
-//     }
-
-//     void mul(int a,int b){
-//         cout<<"Product = "<<a*b<<endl;
-//     }
-
-//     void div(int a,int b){
-//         cout<<"Division = "<<a/b<<endl;
+//     int power(int base, int exp) {
+//         if (exp == 0)
+//             return 1;
+//         return base * power(base, exp - 1);
 //     }
 // };
 
-// int main(){
-//     Calculator c;
+// int main() {
+//     Power obj;
+//     std::cout << obj.power(2, 5);
+//     return 0;
+// }
 
-//     c.add(10,5);
-//     c.sub(10,5);
-//     c.mul(10,5);
-//     c.div(10,5);
+
+// 73.WAP to impliment a binary search using recursion
+// #include <iostream>
+// class BinarySearch {
+// public:
+//     int search(int arr[], int left, int right, int key) {
+//         if (left > right)
+//             return -1;
+
+//         int middle = (left + right) / 2;
+
+//         if (arr[middle] == key)
+//             return middle;
+//         else if (arr[middle] > key)
+//             return search(arr, left, middle - 1, key);
+//         else
+//             return search(arr, middle + 1, right, key);
+//     }
+// };
+
+// int main() {
+//     BinarySearch obj;
+//     int arr[] = {1, 3, 5, 7, 9};
+//     std::cout << obj.search(arr, 0, 4, 7);
+//     return 0;
+// }
+
+
+// 74.WAP to solve the tower of hanaoi using recursion
+
+// #include <iostream>
+// class Hanoi {
+// public:
+//     void solve(int n, char from, char to, char aux) {
+//         if (n == 1) {
+//             std::cout << "Move disk 1 from " << from << " to " << to << std::endl;
+//             return;
+//         }
+//         solve(n - 1, from, aux, to);
+//         std::cout << "Move disk " << n << " from " << from << " to " << to << std::endl;
+//         solve(n - 1, aux, to, from);
+//     }
+// };
+
+// int main() {
+//     Hanoi obj;
+//     obj.solve(3, 'A', 'C', 'B');
 // return 0;
+// }
+
+
+// 75. Develop a Employee Salary System using inheritance
+
+// #include <iostream>
+// class Employee {
+// protected:
+//     std::string name;
+//     int id;
+
+// public:
+//     void getData() {
+//         std::cout << "Enter Employee Name: ";
+//         std::cin >> name;
+//         std::cout << "Enter Employee ID: ";
+//         std::cin >> id;
+//     }
+// };
+
+// class Salary : public Employee {
+// private:
+//     float basic, hra, da, total;
+
+// public:
+//     void calculate() {
+//         std::cout << "Enter Basic Salary: ";
+//         std::cin >> basic;
+
+//         hra = 0.2 * basic;
+//         da  = 0.5 * basic;
+//         total = basic + hra + da;
+//     }
+
+//     void display() {
+//         std::cout << "\nEmployee Details\n";
+//         std::cout << "Name: " << name << std::endl;
+//         std::cout << "ID: " << id << std::endl;
+//         std::cout << "Total Salary: " << total << std::endl;
+//     }
+// };
+
+// int main() {
+//     Salary s;
+//     s.getData();
+//     s.calculate();
+//     s.display();
+//     return 0;
+// }
+
+
+
+// 76. Develop a Student Result System using inheritance
+
+// #include <iostream>
+// class Student {
+// protected:
+//     int roll;
+
+// public:
+//     void getRoll() {
+//         std::cout << "Enter Roll Number: ";
+//         std::cin >> roll;
+//     }
+// };
+
+// class Marks : public Student {
+// protected:
+//     int m1, m2;
+
+// public:
+//     void getMarks() {
+//         std::cout << "Enter Marks (2 subjects): ";
+//         std::cin >> m1 >> m2;
+//     }
+// };
+
+// class Result : public Marks {
+// private:
+//     int total;
+
+// public:
+//     void display() {
+//         total = m1 + m2;
+//         std::cout << "\nRoll No: " << roll << std::endl;
+//         std::cout << "Total Marks: " << total << std::endl;
+//     }
+// };
+
+// int main() {
+//     Result r;
+//     r.getRoll();
+//     r.getMarks();
+//     r.display();
+//     return 0;
+// }
+
+
+
+// 77. Bank System (Hierarchical Inheritance)
+// #include <iostream>
+
+// class Bank {
+// protected:
+//     float balance;
+
+// public:
+//     void setBalance(float b) {
+//         balance = b;
+//     }
+// };
+
+// class Savings : public Bank {
+// public:
+//     void interest() {
+//         std::cout << "Savings Interest: " << balance * 0.05 << std::endl;
+//     }
+// };
+
+// class Current : public Bank {
+// public:
+//     void overdraft() {
+//         std::cout << "Current Account Balance: " << balance << std::endl;
+//     }
+// };
+
+// int main() {
+//     Savings s;
+//     Current c;
+
+//     s.setBalance(10000);
+//     s.interest();
+
+//     c.setBalance(20000);
+//     c.overdraft();
+
+//     return 0;
+// }
+
+
+
+// 78. Develop Vehicle System using inheritance
+// #include <iostream>
+// class Engine {
+// public:
+//     void engineType() {
+//         std::cout << "Petrol Engine\n";
+//     }
+// };
+
+// class Wheels {
+// public:
+//     void wheelCount() {
+//         std::cout << "4 Wheels\n";
+//     }
+// };
+
+// class Car : public Engine, public Wheels {
+// public:
+//     void display() {
+//         std::cout << "Car Details:\n";
+//         engineType();
+//         wheelCount();
+//     }
+// };
+
+// int main() {
+//     Car c;
+//     c.display();
+//     return 0;
+// }
+
+
+
+// 79.Develop an IDE for following:  
+// first parent class implements basic pop and push operations 
+// User actions are stored in stack
+// Undo stack store last operations
+// Redo stack store reversed operations
+// logger records stack operations file
+// Editor stack manager manages everything
+
+
+
+// #include <iostream>
+// using namespace std;
+
+// // ----------- Base Stack -----------
+// class StackBase {
+// protected:
+//     static const int MAX = 10;
+//     const char* arr[MAX];
+//     int topIndex;
+
+// public:
+//     StackBase() {
+//         topIndex = -1;
+//     }
+
+//     void push(const char* action) {
+//         if (topIndex == MAX - 1) {
+//             cout << "Overflow\n";
+//             return;
+//         }
+//         arr[++topIndex] = action;
+//     }
+
+//     const char* pop() {
+//         if (topIndex == -1) {
+//             return NULL;
+//         }
+//         return arr[topIndex--];
+//     }
+
+//     bool isEmpty() {
+//         return topIndex == -1;
+//     }
+
+//     const char* top() {
+//         if (topIndex == -1)
+//             return NULL;
+//         return arr[topIndex];
+//     }
+// };
+
+// // ----------- Undo / Redo -----------
+// class UndoStack : public StackBase {};
+// class RedoStack : public StackBase {};
+
+// // ----------- Manager -----------
+// class EditorStackManager {
+//     UndoStack undoStack;
+//     RedoStack redoStack;
+
+// public:
+//     void performAction(const char* action) {
+//         undoStack.push(action);
+
+//         // clear redo stack
+//         while (!redoStack.isEmpty()) {
+//             redoStack.pop();
+//         }
+
+//         cout << "Performed: " << action << endl;
+//     }
+
+//     void undo() {
+//         if (undoStack.isEmpty()) {
+//             cout << "Nothing to undo\n";
+//             return;
+//         }
+
+//         const char* action = undoStack.pop();
+//         redoStack.push(action);
+
+//         cout << "Undo: " << action << endl;
+//     }
+
+//     void redo() {
+//         if (redoStack.isEmpty()) {
+//             cout << "Nothing to redo\n";
+//             return;
+//         }
+
+//         const char* action = redoStack.pop();
+//         undoStack.push(action);
+
+//         cout << "Redo: " << action << endl;
+//     }
+
+//     void showTop() {
+//         const char* t = undoStack.top();
+//         if (t != NULL)
+//             cout << "Top: " << t << endl;
+//         else
+//             cout << "Empty\n";
+//     }
+// };
+
+// int main() {
+//     EditorStackManager e;
+
+//     e.performAction("A");
+//     e.performAction("B");
+//     e.performAction("C");
+
+//     e.showTop();
+
+//     e.undo();
+//     e.undo();
+
+//     e.redo();
+
+//     e.showTop();
+
+//     return 0;
+// }
+
+
+
+// 80.wap to demonstrate Compile-time Polymorphism using Function Overloading 
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Print {
+// public:
+//     void show(int a) {
+//         cout << "Integer: " << a << endl;
+//     }
+
+//     void show(double b) {
+//         cout << "Double: " << b << endl;
+//     }
+
+//     void show(string c) {
+//         cout << "String: " << c << endl;
+//     }
+// };
+
+// int main() {
+//     Print obj;
+//     obj.show(10);
+//     obj.show(5.5);
+//     obj.show("Hello");
+
+//     return 0;
+// }
+// 81.wap to demonstrate Compile-time Polymorphism using operator Overloading 
+
+// #include <iostream>
+// using namespace std;
+
+// class Complex {
+// public:
+//     int real, imag;
+
+//     Complex(int r, int i) {
+//         real = r;
+//         imag = i;
+//     }
+
+//     Complex operator + (Complex obj) {
+//         return Complex(real + obj.real, imag + obj.imag);
+//     }
+
+//     void display() {
+//         cout << real << " + " << imag << "i" << endl;
+//     }
+// };
+
+// int main() {
+//     Complex c1(2, 3), c2(4, 5);
+//     Complex c3 = c1 + c2;
+
+//     c3.display();
+
+//     return 0;
+// }
+// // 82.wap to demonstrate Runtime Polymorphism  using Function overriding  
+
+// #include <iostream>
+// using namespace std;
+
+// class Base {
+// public:
+//     virtual void display() {
+//         cout << "Base display" << endl;
+//     }
+// };
+
+// class Derived : public Base {
+// public:
+//     void display() {
+//         cout << "Derived display" << endl;
+//     }
+// };
+
+// int main() {
+//     Base* b;
+//     Derived d;
+
+//     b = &d;
+//     b->display();   // Calls Derived version
+
+//     return 0;
+// }
+
+// 83.wap to demonstrate Runtime Polymorphism  using  different classes
+// #include <iostream>
+// using namespace std;
+
+// class Employee {
+// public:
+//     virtual void salary() {
+//         cout << "Employee salary" << endl;
+//     }
+// };
+
+// class Manager : public Employee {
+// public:
+//     void salary() {
+//         cout << "Manager salary: 50000" << endl;
+//     }
+// };
+
+// class Developer : public Employee {
+// public:
+//     void salary() {
+//         cout << "Developer salary: 30000" << endl;
+//     }
+// };
+
+// int main() {
+//     Employee* e;
+
+//     Manager m;
+//     Developer d;
+
+//     e = &m;
+//     e->salary();
+
+//     e = &d;
+//     e->salary();
+
+//     return 0;
+// }
+
+
+
+// 84.WAP to demonstate Abstract Class
+// #include <iostream>
+// using namespace std;
+
+// class Shape {
+// public:
+//     virtual void area() = 0;  // pure virtual function
+// };
+
+// class Circle : public Shape {
+// public:
+//     void area() {
+//         cout << "Area of Circle" << endl;
+//     }
+// };
+
+// class Square : public Shape {
+// public:
+//     void area() {
+//         cout << "Area of Square" << endl;
+//     }
+// };
+
+// int main() {
+//     Shape* s;
+
+//     Circle c;
+//     Square sq;
+
+//     s = &c;
+//     s->area();
+
+//     s = &sq;
+//     s->area();
+
+//     return 0;
+// }
+
+// 85.wap to demonstrate Virtual Function with Base Class Pointer Array
+
+// #include <iostream>
+// using namespace std;
+
+// class Animal {
+// public:
+//     virtual void sound() {
+//         cout << "Animal makes sound" << endl;
+//     }
+// };
+
+// class Dog : public Animal {
+// public:
+//     void sound() {
+//         cout << "Dog barks" << endl;
+//     }
+// };
+
+// class Cat : public Animal {
+// public:
+//     void sound() {
+//         cout << "Cat meows" << endl;
+//     }
+// };
+
+// int main() {
+//     Animal* a[2];
+//     Dog d;
+//     Cat c;
+
+//     a[0] = &d;
+//     a[1] = &c;
+
+//     for(int i = 0; i < 2; i++) {
+//         a[i]->sound();
+//     }
+
+//     return 0;
 // }
