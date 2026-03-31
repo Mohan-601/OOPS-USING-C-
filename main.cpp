@@ -217,15 +217,15 @@
 
 
 
-// 14.wap to print pyramiddle of star
+// 14.wap to print pyramid of star
 
 // #include <iostream>
 // using namespace std;
 
-// class Pyramiddle {
+// class Pyramid {
 //     int n;
 // public:
-//     Pyramiddle(int rows) {
+//     Pyramid(int rows) {
 //         n = rows;
 //     }
 
@@ -247,7 +247,7 @@
 //     cout << "Enter number of rows: ";
 //     cin >> rows;
 
-//     Pyramiddle obj(rows);
+//     Pyramid obj(rows);
 //     obj.display();
 
 //     return 0;
@@ -255,15 +255,15 @@
 
 
  
-// 15.wap to print star upside down pyramiddle
+// 15.wap to print star upside down pyramid
 
 // #include <iostream>
 // using namespace std;
 
-// class InvertedPyramiddle {
+// class InvertedPyramid {
 //     int n;
 // public:
-//     InvertedPyramiddle(int rows) {
+//     InvertedPyramid(int rows) {
 //         n = rows;
 //     }
 
@@ -285,7 +285,7 @@
 //     cout << "Enter number of rows: ";
 //     cin >> rows;
 
-//     InvertedPyramiddle obj(rows);
+//     InvertedPyramid obj(rows);
 //     obj.display();
 
 //     return 0;
@@ -1579,11 +1579,11 @@
 //     HollowSquare obj;
 //     obj.print(5);
 // }
-// 49.wap to print hollow pyramiddle
+// 49.wap to print hollow pyramid
 // #include <iostream>
 // using namespace std;
 
-// class HollowPyramiddle {
+// class HollowPyramid {
 // public:
 //     void print(int n) {
 //         for(int i=1;i<=n;i++){
@@ -1602,7 +1602,7 @@
 // };
 
 // int main(){
-//     HollowPyramiddle obj;
+//     HollowPyramid obj;
 //     obj.print(5);
 // }
 // 50.wap to print hollow diamond
@@ -1644,7 +1644,6 @@
 //     obj.print(5);
 // return 0;
 // }
-
 
 // 51.wap to print x star pattern
 // #include <iostream>
@@ -2797,577 +2796,2034 @@
 //     return 0;
 // }
 
-// 72.Wap to  calculate a power of a number using recuursion
+// 72.wap to demonstrate inheritance using class
 // #include <iostream>
-// class Power {
+// using namespace std;
+
+// class Calculator{
 // public:
-//     int power(int base, int exp) {
-//         if (exp == 0)
-//             return 1;
-//         return base * power(base, exp - 1);
+//     void add(int a,int b){
+//         cout<<"Sum = "<<a+b<<endl;
+//     }
+
+//     void sub(int a,int b){
+//         cout<<"Difference = "<<a-b<<endl;
+//     }
+
+//     void mul(int a,int b){
+//         cout<<"Product = "<<a*b<<endl;
+//     }
+
+//     void div(int a,int b){
+//         cout<<"Division = "<<a/b<<endl;
 //     }
 // };
 
-// int main() {
-//     Power obj;
-//     std::cout << obj.power(2, 5);
-//     return 0;
-// }
+// int main(){
+//     Calculator c;
 
-
-// 73.WAP to impliment a binary search using recursion
-// #include <iostream>
-// class BinarySearch {
-// public:
-//     int search(int arr[], int left, int right, int key) {
-//         if (left > right)
-//             return -1;
-
-//         int middle = (left + right) / 2;
-
-//         if (arr[middle] == key)
-//             return middle;
-//         else if (arr[middle] > key)
-//             return search(arr, left, middle - 1, key);
-//         else
-//             return search(arr, middle + 1, right, key);
-//     }
-// };
-
-// int main() {
-//     BinarySearch obj;
-//     int arr[] = {1, 3, 5, 7, 9};
-//     std::cout << obj.search(arr, 0, 4, 7);
-//     return 0;
-// }
-
-
-// 74.WAP to solve the tower of hanaoi using recursion
-
-// #include <iostream>
-// class Hanoi {
-// public:
-//     void solve(int n, char from, char to, char aux) {
-//         if (n == 1) {
-//             std::cout << "Move disk 1 from " << from << " to " << to << std::endl;
-//             return;
-//         }
-//         solve(n - 1, from, aux, to);
-//         std::cout << "Move disk " << n << " from " << from << " to " << to << std::endl;
-//         solve(n - 1, aux, to, from);
-//     }
-// };
-
-// int main() {
-//     Hanoi obj;
-//     obj.solve(3, 'A', 'C', 'B');
+//     c.add(10,5);
+//     c.sub(10,5);
+//     c.mul(10,5);
+//     c.div(10,5);
 // return 0;
 // }
 
 
-// 75. Develop a Employee Salary System using inheritance
+// 73🔹 LeetCode #1 — Two Sum
+// Problem:
+// Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
 
 // #include <iostream>
-// class Employee {
-// protected:
-//     std::string name;
-//     int id;
+// #include <vector>
+// using namespace std;
 
+// class Solution {
 // public:
-//     void getData() {
-//         std::cout << "Enter Employee Name: ";
-//         std::cin >> name;
-//         std::cout << "Enter Employee ID: ";
-//         std::cin >> id;
-//     }
-// };
-
-// class Salary : public Employee {
-// private:
-//     float basic, hra, da, total;
-
-// public:
-//     void calculate() {
-//         std::cout << "Enter Basic Salary: ";
-//         std::cin >> basic;
-
-//         hra = 0.2 * basic;
-//         da  = 0.5 * basic;
-//         total = basic + hra + da;
-//     }
-
-//     void display() {
-//         std::cout << "\nEmployee Details\n";
-//         std::cout << "Name: " << name << std::endl;
-//         std::cout << "ID: " << id << std::endl;
-//         std::cout << "Total Salary: " << total << std::endl;
+//     vector<int> twoSum(vector<int>& nums, int target) {
+//         for(int i = 0; i < nums.size(); i++) {
+//             for(int j = i + 1; j < nums.size(); j++) {
+//                 if(nums[i] + nums[j] == target) {
+//                     return {i, j};
+//                 }
+//             }
+//         }
+//         return {};
 //     }
 // };
 
 // int main() {
-//     Salary s;
-//     s.getData();
-//     s.calculate();
-//     s.display();
-//     return 0;
+//     Solution obj;
+//     vector<int> nums = {2,7,11,15};
+//     vector<int> res = obj.twoSum(nums, 9);
+
+//     cout << res[0] << " " << res[1];
 // }
 
 
 
-// 76. Develop a Student Result System using inheritance
-
-// #include <iostream>
-// class Student {
-// protected:
-//     int roll;
-
-// public:
-//     void getRoll() {
-//         std::cout << "Enter Roll Number: ";
-//         std::cin >> roll;
-//     }
-// };
-
-// class Marks : public Student {
-// protected:
-//     int m1, m2;
-
-// public:
-//     void getMarks() {
-//         std::cout << "Enter Marks (2 subjects): ";
-//         std::cin >> m1 >> m2;
-//     }
-// };
-
-// class Result : public Marks {
-// private:
-//     int total;
-
-// public:
-//     void display() {
-//         total = m1 + m2;
-//         std::cout << "\nRoll No: " << roll << std::endl;
-//         std::cout << "Total Marks: " << total << std::endl;
-//     }
-// };
-
-// int main() {
-//     Result r;
-//     r.getRoll();
-//     r.getMarks();
-//     r.display();
-//     return 0;
-// }
-
-
-
-// 77. Bank System (Hierarchical Inheritance)
-// #include <iostream>
-
-// class Bank {
-// protected:
-//     float balance;
-
-// public:
-//     void setBalance(float b) {
-//         balance = b;
-//     }
-// };
-
-// class Savings : public Bank {
-// public:
-//     void interest() {
-//         std::cout << "Savings Interest: " << balance * 0.05 << std::endl;
-//     }
-// };
-
-// class Current : public Bank {
-// public:
-//     void overdraft() {
-//         std::cout << "Current Account Balance: " << balance << std::endl;
-//     }
-// };
-
-// int main() {
-//     Savings s;
-//     Current c;
-
-//     s.setBalance(10000);
-//     s.interest();
-
-//     c.setBalance(20000);
-//     c.overdraft();
-
-//     return 0;
-// }
-
-
-
-// 78. Develop Vehicle System using inheritance
-// #include <iostream>
-// class Engine {
-// public:
-//     void engineType() {
-//         std::cout << "Petrol Engine\n";
-//     }
-// };
-
-// class Wheels {
-// public:
-//     void wheelCount() {
-//         std::cout << "4 Wheels\n";
-//     }
-// };
-
-// class Car : public Engine, public Wheels {
-// public:
-//     void display() {
-//         std::cout << "Car Details:\n";
-//         engineType();
-//         wheelCount();
-//     }
-// };
-
-// int main() {
-//     Car c;
-//     c.display();
-//     return 0;
-// }
-
-
-
-// 79.Develop an IDE for following:  
-// first parent class implements basic pop and push operations 
-// User actions are stored in stack
-// Undo stack store last operations
-// Redo stack store reversed operations
-// logger records stack operations file
-// Editor stack manager manages everything
-
+// 74🔹 LeetCode #9 — Palindrome Number
+// Problem:
+// Given an integer x, return true if x is a palindrome, and false otherwise.
 
 
 // #include <iostream>
 // using namespace std;
 
-// // ----------- Base Stack -----------
-// class StackBase {
-// protected:
-//     static const int MAX = 10;
-//     const char* arr[MAX];
-//     int topIndex;
-
+// class Solution {
 // public:
-//     StackBase() {
-//         topIndex = -1;
-//     }
+//     bool isPalindrome(int x) {
+//         if(x < 0) return false;
 
-//     void push(const char* action) {
-//         if (topIndex == MAX - 1) {
-//             cout << "Overflow\n";
-//             return;
+//         int rev = 0, temp = x;
+//         while(temp > 0) {
+//             rev = rev * 10 + temp % 10;
+//             temp /= 10;
 //         }
-//         arr[++topIndex] = action;
-//     }
-
-//     const char* pop() {
-//         if (topIndex == -1) {
-//             return NULL;
-//         }
-//         return arr[topIndex--];
-//     }
-
-//     bool isEmpty() {
-//         return topIndex == -1;
-//     }
-
-//     const char* top() {
-//         if (topIndex == -1)
-//             return NULL;
-//         return arr[topIndex];
+//         return rev == x;
 //     }
 // };
 
-// // ----------- Undo / Redo -----------
-// class UndoStack : public StackBase {};
-// class RedoStack : public StackBase {};
+// int main() {
+//     Solution obj;
+//     cout << obj.isPalindrome(121);
+// }
 
-// // ----------- Manager -----------
-// class EditorStackManager {
-//     UndoStack undoStack;
-//     RedoStack redoStack;
+// 75🔹 LeetCode #26 — Remove Duplicates from Sorted Array
+// Problem:
+// Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once.
 
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
 // public:
-//     void performAction(const char* action) {
-//         undoStack.push(action);
+//     int removeDuplicates(vector<int>& nums) {
+//         vector<int> temp;
 
-//         // clear redo stack
-//         while (!redoStack.isEmpty()) {
-//             redoStack.pop();
+//         for(int i = 0; i < nums.size(); i++) {
+//             bool found = false;
+
+//             for(int j = 0; j < temp.size(); j++) {
+//                 if(nums[i] == temp[j]) {
+//                     found = true;
+//                     break;
+//                 }
+//             }
+
+//             if(!found)
+//                 temp.push_back(nums[i]);
 //         }
 
-//         cout << "Performed: " << action << endl;
+//         nums = temp;
+//         return nums.size();
 //     }
+// };
 
-//     void undo() {
-//         if (undoStack.isEmpty()) {
-//             cout << "Nothing to undo\n";
-//             return;
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {1,1,2};
+
+//     cout << obj.removeDuplicates(nums);
+
+// }
+
+
+
+// 76🔹 LeetCode #27 — Remove Element
+// Problem:
+// Given an integer array nums and an integer val, remove all occurrences of val in-place.
+// Return the number of elements k that are not equal to val.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int removeElement(vector<int>& nums, int val) {
+//         vector<int> temp;
+
+//         for(int i = 0; i < nums.size(); i++) {
+//             if(nums[i] != val)
+//                 temp.push_back(nums[i]);
 //         }
 
-//         const char* action = undoStack.pop();
-//         redoStack.push(action);
-
-//         cout << "Undo: " << action << endl;
+//         nums = temp;
+//         return nums.size();
 //     }
+// };
 
-//     void redo() {
-//         if (redoStack.isEmpty()) {
-//             cout << "Nothing to redo\n";
-//             return;
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {3,2,2,3};
+
+//     cout << obj.removeElement(nums, 3);
+// }
+
+// 77🔹 LeetCode #121 — Best Time to Buy and Sell Stock
+// Problem:
+// You are given an array prices where prices[i] is the price of a stock on day i.
+// You want to maximize your profit by:
+// Choosing a day to buy
+// Choosing a later day to sell
+// Return the maximum profit you can achieve.
+// If no profit is possible, return 0.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int maxProfit(vector<int>& prices) {
+//         int maxProfit = 0;
+
+//         for(int i = 0; i < prices.size(); i++) {
+//             for(int j = i+1; j < prices.size(); j++) {
+//                 if(prices[j] - prices[i] > maxProfit)
+//                     maxProfit = prices[j] - prices[i];
+//             }
+//         }
+//         return maxProfit;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> prices = {7,1,5,3,6,4};
+//     cout << obj.maxProfit(prices);
+// }
+
+// 78.🔹HackerRank — Simple Array Sum
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int simpleArraySum(vector<int>& arr) {
+//         int sum = 0;
+
+//         for(int i = 0; i < arr.size(); i++)
+//             sum += arr[i];
+
+//         return sum;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> arr = {1,2,3,4};
+
+//     cout << obj.simpleArraySum(arr);
+// }
+
+
+// 79🔹 LeetCode #136 — Single Number
+// Problem:
+// Given a non-empty array of integers nums, every element appears twice except for one.
+// Find that single one.
+// Find the element that appears once (others appear twice).
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int singleNumber(vector<int>& nums) {
+//         for(int i = 0; i < nums.size(); i++) {
+//             int count = 0;
+
+//             for(int j = 0; j < nums.size(); j++) {
+//                 if(nums[i] == nums[j])
+//                     count++;
+//             }
+
+//             if(count == 1)
+//                 return nums[i];
+//         }
+//         return -1;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {2,2,1};
+//     cout << obj.singleNumber(nums);
+// }
+
+// 80.🔹 LeetCode #53 — Maximum Subarray
+// Problem:
+// Given an integer array nums, find the contiguous subarray with the largest sum, and return its sum.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int maxSubArray(vector<int>& nums) {
+//         int maxSum = nums[0];
+
+//         for(int i = 0; i < nums.size(); i++) {
+//             int sum = 0;
+//             for(int j = i; j < nums.size(); j++) {
+//                 sum += nums[j];
+//                 if(sum > maxSum)
+//                     maxSum = sum;
+//             }
+//         }
+//         return maxSum;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+//     cout << obj.maxSubArray(nums);
+// }
+
+// 81.🔹hacker rank -- MINI-MAX SUM
+// Find min sum of 4 elements and max sum of 4 elements.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     void miniMaxSum(vector<int>& arr) {
+//         long total = 0;
+
+//         for(int i = 0; i < arr.size(); i++)
+//             total += arr[i];
+
+//         long minSum = total - arr[0];
+//         long maxSum = total - arr[0];
+
+//         for(int i = 0; i < arr.size(); i++) {
+//             long sum = total - arr[i];
+
+//             if(sum < minSum) minSum = sum;
+//             if(sum > maxSum) maxSum = sum;
 //         }
 
-//         const char* action = redoStack.pop();
-//         undoStack.push(action);
-
-//         cout << "Redo: " << action << endl;
-//     }
-
-//     void showTop() {
-//         const char* t = undoStack.top();
-//         if (t != NULL)
-//             cout << "Top: " << t << endl;
-//         else
-//             cout << "Empty\n";
+//         cout << minSum << " " << maxSum;
 //     }
 // };
 
 // int main() {
-//     EditorStackManager e;
-
-//     e.performAction("A");
-//     e.performAction("B");
-//     e.performAction("C");
-
-//     e.showTop();
-
-//     e.undo();
-//     e.undo();
-
-//     e.redo();
-
-//     e.showTop();
-
-//     return 0;
+//     Solution obj;
+//     vector<int> arr = {1,2,3,4,5};
+//     obj.miniMaxSum(arr);
 // }
 
 
 
-// 80.wap to demonstrate Compile-time Polymorphism using Function Overloading 
+// 82🔹 LeetCode #88 — Merge Sorted Array
+// Problem:
+// You are given two sorted integer arrays nums1 and nums2, and two integers m and n.
+// nums1 has size m + n
+// First m elements are valid
+// Last n elements are 0 (placeholders)
+// Merge nums2 into nums1 as one sorted array.
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+//         for(int i = 0; i < n; i++) {
+//             nums1[m+i] = nums2[i];
+//         }
+
+//         // simple sort
+//         for(int i = 0; i < m+n; i++) {
+//             for(int j = i+1; j < m+n; j++) {
+//                 if(nums1[i] > nums1[j]) {
+//                     int temp = nums1[i];
+//                     nums1[i] = nums1[j];
+//                     nums1[j] = temp;
+//                 }
+//             }
+//         }
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums1 = {1,2,3,0,0,0};
+//     vector<int> nums2 = {2,5,6};
+
+//     obj.merge(nums1, 3, nums2, 3);
+
+//     for(int i = 0; i < nums1.size(); i++)
+//         cout << nums1[i] << " ";
+// }
+
+
+
+// 🔹 83. Reverse Linked List//Leet Code #206
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     node* reverseList(node* head) {
+//         node* prev = NULL;
+//         node* curr = head;
+
+//         while (curr) {
+//             node* next = curr->next;
+//             curr->next = prev;
+//             prev = curr;
+//             curr = next;
+//         }
+//         return prev;
+//     }
+// };
+
+// void printList(node* head) {
+//     while (head) {
+//         cout << head->val << " -> ";
+//         head = head->next;
+//     }
+//     cout << "NULL\n";
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = new node(3);
+
+//     Solution obj;
+//     head = obj.reverseList(head);
+
+//     printList(head);
+//     return 0;
+// }
+
+// 🔹 84. Middle of Linked List // leet code #876
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     node* middlenode(node* head) {
+//         node* slow = head;
+//         node* fast = head;
+
+//         while (fast && fast->next) {
+//             slow = slow->next;
+//             fast = fast->next->next;
+//         }
+//         return slow;
+//     }
+// };
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = new node(3);
+//     head->next->next->next = new node(4);
+
+//     Solution obj;
+//     node* mid = obj.middlenode(head);
+
+//     cout << "Middle: " << mid->val;
+//     return 0;
+// }
+
+
+// 🔹 85. Remove Duplicates from Sorted List leet code #83
 
 
 // #include <iostream>
 // using namespace std;
 
-// class Print {
+// class node {
 // public:
-//     void show(int a) {
-//         cout << "Integer: " << a << endl;
-//     }
+//     int val;
+//     node* next;
 
-//     void show(double b) {
-//         cout << "Double: " << b << endl;
-//     }
-
-//     void show(string c) {
-//         cout << "String: " << c << endl;
+//     node(int x) {
+//         val = x;
+//         next = NULL;
 //     }
 // };
 
-// int main() {
-//     Print obj;
-//     obj.show(10);
-//     obj.show(5.5);
-//     obj.show("Hello");
+// class Solution {
+// public:
+//     node* deleteDuplicates(node* head) {
+//         node* curr = head;
 
+//         while (curr && curr->next) {
+//             if (curr->val == curr->next->val)
+//                 curr->next = curr->next->next;
+//             else
+//                 curr = curr->next;
+//         }
+//         return head;
+//     }
+// };
+
+// void print(node* head) {
+//     while (head) {
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(1);
+//     head->next->next = new node(2);
+
+//     Solution obj;
+//     head = obj.deleteDuplicates(head);
+
+//     print(head);
 //     return 0;
 // }
-// 81.wap to demonstrate Compile-time Polymorphism using operator Overloading 
+
+
+// 🔹 86. Merge Two Sorted Lists leetcode #21
+
 
 // #include <iostream>
 // using namespace std;
 
-// class Complex {
+// class node {
 // public:
-//     int real, imag;
+//     int val;
+//     node* next;
 
-//     Complex(int r, int i) {
-//         real = r;
-//         imag = i;
-//     }
-
-//     Complex operator + (Complex obj) {
-//         return Complex(real + obj.real, imag + obj.imag);
-//     }
-
-//     void display() {
-//         cout << real << " + " << imag << "i" << endl;
+//     node(int x) {
+//         val = x;
+//         next = NULL;
 //     }
 // };
 
+// class Solution {
+// public:
+//     node* mergeTwoLists(node* l1, node* l2) {
+//         node dummy(0);
+//         node* tail = &dummy;
+
+//         while (l1 && l2) {
+//             if (l1->val < l2->val) {
+//                 tail->next = l1;
+//                 l1 = l1->next;
+//             } else {
+//                 tail->next = l2;
+//                 l2 = l2->next;
+//             }
+//             tail = tail->next;
+//         }
+
+//         if (l1) tail->next = l1;
+//         if (l2) tail->next = l2;
+
+//         return dummy.next;
+//     }
+// };
+
+// void print(node* head) {
+//     while (head) {
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+// }
+
 // int main() {
-//     Complex c1(2, 3), c2(4, 5);
-//     Complex c3 = c1 + c2;
+//     node* l1 = new node(1);
+//     l1->next = new node(3);
 
-//     c3.display();
+//     node* l2 = new node(2);
+//     l2->next = new node(4);
 
+//     Solution obj;
+//     node* result = obj.mergeTwoLists(l1, l2);
+
+//     print(result);
 //     return 0;
 // }
-// // 82.wap to demonstrate Runtime Polymorphism  using Function overriding  
+
+
+// 🔹 87. Linked List Cycle leetcode #141
 
 // #include <iostream>
 // using namespace std;
 
-// class Base {
+// class node {
 // public:
-//     virtual void display() {
-//         cout << "Base display" << endl;
+//     int val;
+//     node* next;
+
+//     node(int x) {
+//         val = x;
+//         next = NULL;
 //     }
 // };
 
-// class Derived : public Base {
+// class Solution {
 // public:
-//     void display() {
-//         cout << "Derived display" << endl;
-//     }
-// };
+//     bool hasCycle(node* head) {
+//         node* slow = head;
+//         node* fast = head;
 
-// int main() {
-//     Base* b;
-//     Derived d;
+//         while (fast && fast->next) {
+//             slow = slow->next;
+//             fast = fast->next->next;
 
-//     b = &d;
-//     b->display();   // Calls Derived version
-
-//     return 0;
-// }
-
-// 83.wap to demonstrate Runtime Polymorphism  using  different classes
-// #include <iostream>
-// using namespace std;
-
-// class Employee {
-// public:
-//     virtual void salary() {
-//         cout << "Employee salary" << endl;
-//     }
-// };
-
-// class Manager : public Employee {
-// public:
-//     void salary() {
-//         cout << "Manager salary: 50000" << endl;
-//     }
-// };
-
-// class Developer : public Employee {
-// public:
-//     void salary() {
-//         cout << "Developer salary: 30000" << endl;
+//             if (slow == fast) return true;
+//         }
+//         return false;
 //     }
 // };
 
 // int main() {
-//     Employee* e;
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = head; // create cycle
 
-//     Manager m;
-//     Developer d;
-
-//     e = &m;
-//     e->salary();
-
-//     e = &d;
-//     e->salary();
-
+//     Solution obj;
+//   if (obj.hasCycle(head)) {
+//         cout << "Cycle Found";
+//     } else {
+//         cout << "No Cycle";
+//     }
 //     return 0;
 // }
 
-
-
-// 84.WAP to demonstate Abstract Class
-// #include <iostream>
-// using namespace std;
-
-// class Shape {
-// public:
-//     virtual void area() = 0;  // pure virtual function
-// };
-
-// class Circle : public Shape {
-// public:
-//     void area() {
-//         cout << "Area of Circle" << endl;
-//     }
-// };
-
-// class Square : public Shape {
-// public:
-//     void area() {
-//         cout << "Area of Square" << endl;
-//     }
-// };
-
-// int main() {
-//     Shape* s;
-
-//     Circle c;
-//     Square sq;
-
-//     s = &c;
-//     s->area();
-
-//     s = &sq;
-//     s->area();
-
-//     return 0;
-// }
-
-// 85.wap to demonstrate Virtual Function with Base Class Pointer Array
+// 🔹 88. HACKER-RANK:Compare Two Linked Lists
+// Given two linked lists, determine whether they are identical.
+// Two lists are identical if they have the same data and same order.
 
 // #include <iostream>
 // using namespace std;
 
-// class Animal {
+// class node {
 // public:
-//     virtual void sound() {
-//         cout << "Animal makes sound" << endl;
+//     int data;
+//     node* next;
+
+//     node(int x) {
+//         data = x;
+//         next = NULL;
 //     }
 // };
 
-// class Dog : public Animal {
+// class Solution {
 // public:
-//     void sound() {
-//         cout << "Dog barks" << endl;
-//     }
-// };
+//     bool compareLists(node* head1, node* head2) {
+//         while (head1 && head2) {
+//             if (head1->data != head2->data)
+//                 return false;
 
-// class Cat : public Animal {
-// public:
-//     void sound() {
-//         cout << "Cat meows" << endl;
+//             head1 = head1->next;
+//             head2 = head2->next;
+//         }
+
+//         return (head1 == NULL && head2 == NULL);
 //     }
 // };
 
 // int main() {
-//     Animal* a[2];
-//     Dog d;
-//     Cat c;
+//     node* l1 = new node(1);
+//     l1->next = new node(2);
 
-//     a[0] = &d;
-//     a[1] = &c;
+//     node* l2 = new node(1);
+//     l2->next = new node(2);
 
-//     for(int i = 0; i < 2; i++) {
-//         a[i]->sound();
+//     Solution obj;
+//     if (obj.compareLists(l1,l2)) {
+//         cout << "Identical";
+//     } else {
+//         cout << "Not Identical";
+//     }
+//     return 0;
+// }
+
+// 89.🔹 1. Delete node in a Linked List leetcode -#237
+
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     void deletenode(node* node) {
+//         node->val = node->next->val;
+//         node->next = node->next->next;
+//     }
+// };
+
+// void print(node* head) {
+//     while (head) {
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(4);
+//     head->next = new node(5);
+//     head->next->next = new node(1);
+//     head->next->next->next = new node(9);
+
+//     Solution obj;
+//     obj.deletenode(head->next); 
+
+//     print(head);
+//     return 0;
+// }
+
+
+// 🔹 90. Palindrome Linked List leetcode #234
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     bool isPalindrome(node* head) {
+//         vector<int> arr;
+
+//         while (head) {
+//             arr.push_back(head->val);
+//             head = head->next;
+//         }
+
+//         int i = 0, j = arr.size() - 1;
+//         while (i < j) {
+//             if (arr[i] != arr[j])
+//                 return false;
+//             i++;
+//             j--;
+//         }
+//         return true;
+//     }
+// };
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = new node(2);
+//     head->next->next->next = new node(1);
+
+//     Solution obj;
+//   if (obj.isPalindrome(head)) {
+//         cout << "Given lis is a Palindrome";
+//     } else {
+//         cout << "Given list is not a Not Palindrome";
+//     }
+//     return 0;
+// }
+
+
+// 🔹 91. Remove Nth node From End leetcode#19
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     node* removeNthFromEnd(node* head, int n) {
+//         int size = 0;
+//         node* temp = head;
+
+//         while (temp) {
+//             size++;
+//             temp = temp->next;
+//         }
+
+//         if (n == size)
+//             return head->next;
+
+//         temp = head;
+//         for (int i = 0; i < size - n - 1; i++)
+//             temp = temp->next;
+
+//         temp->next = temp->next->next;
+//         return head;
+//     }
+// };
+
+// void print(node* head) {
+//     while (head) {
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = new node(3);
+
+//     Solution obj;
+//     head = obj.removeNthFromEnd(head, 2);
+
+//     print(head);
+//     return 0;
+// }
+
+// 🔹 92. Hacker Rank-Find Merge Point of Two Lists
+// Given two linked lists that merge at some point, find the node where they merge.
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int data;
+//     node* next;
+
+//     node(int x) {
+//         data = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     int findMergenode(node* head1, node* head2) {
+//         node* a = head1;
+//         node* b = head2;
+
+//         while (a != b) {
+//             a = (a == NULL) ? head2 : a->next;
+//             b = (b == NULL) ? head1 : b->next;
+//         }
+
+//         return a->data;
+//     }
+// };
+
+// int main() {
+//     node* common = new node(30);
+//     common->next = new node(40);
+
+//     node* l1 = new node(10);
+//     l1->next = new node(20);
+//     l1->next->next = common;
+
+//     node* l2 = new node(15);
+//     l2->next = common;
+
+//     Solution obj;
+//     cout << obj.findMergenode(l1, l2);
+
+//     return 0;
+// }
+
+
+// 🔷 93. Butterfly Pattern
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = 1; i <= n; i++) {
+//         for (int j = 1; j <= i; j++) cout << "*";
+//         for (int j = 1; j <= 2*(n-i); j++) cout << " ";
+//         for (int j = 1; j <= i; j++) cout << "*";
+//         cout << endl;
+//     }
+
+
+//     for (int i = n; i >= 1; i--) {
+//         for (int j = 1; j <= i; j++) cout << "*";
+//         for (int j = 1; j <= 2*(n-i); j++) cout << " ";
+//         for (int j = 1; j <= i; j++) cout << "*";
+//         cout << endl;
+//         return 0;
+//     }
+// }
+
+//🔷 94. Hollow Pyramid
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = 1; i <= n; i++) {
+//         for (int j = 1; j <= n-i; j++) cout << " ";
+
+//         for (int j = 1; j <= 2*i-1; j++) {
+//             if (j == 1 || j == 2*i-1 || i == n)
+//                 cout << "*";
+//             else
+//                 cout << " ";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+
+// 🔷 95. Pascal’s Triangle
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = 0; i < n; i++) {
+//         int num = 1;
+//         for (int j = 0; j <= i; j++) {
+//             cout << num << " ";
+//             num = num * (i - j) / (j + 1);
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+// 🔷 96. Diamond with Numbers
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = 1; i <= n; i++) {
+//         for (int j = 1; j <= n-i; j++)
+//          {cout << " ";}
+//         for (int j = 1; j <= i; j++)
+//         { cout << j;}
+//         for (int j = i-1; j >= 1; j--) 
+//         {cout << j;}
+//         cout << endl;
+//     }
+
+//     for (int i = n-1; i >= 1; i--) {
+//         for (int j = 1; j <= n-i; j++)
+//          {cout << " ";}
+//         for (int j = 1; j <= i; j++)
+//         { cout << j;}
+//         for (int j = i-1; j >= 1; j--) 
+//         {cout << j;}
+//         cout << endl;   
+//     }
+//     return 0;
+// }
+
+
+// 🔷 97 Hollow Square
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = 1; i <= n; i++) {
+//         for (int j = 1; j <= n; j++) {
+//             if (i == 1 || i == n || j == 1 || j == n)
+//                 cout << "*";
+//             else
+//                 cout << " ";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+// 🔷 98. Hollow Diamond
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = 1; i <= n; i++) {
+//         for (int j = 1; j <= n-i; j++) cout << " ";
+//         for (int j = 1; j <= 2*i-1; j++) {
+//             if (j == 1 || j == 2*i-1)
+//                 cout << "*";
+//             else
+//                 cout << " ";
+//         }
+//         cout << endl;
+//     }
+
+//     for (int i = n-1; i >= 1; i--) {
+//         for (int j = 1; j <= n-i; j++) cout << " ";
+//         for (int j = 1; j <= 2*i-1; j++) {
+//             if (j == 1 || j == 2*i-1)
+//                 cout << "*";
+//             else
+//                 cout << " ";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+// 🔷 99. Zig-Zag Pattern
+// *   *   *
+//  * * * *
+//   *   *
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n = 9;
+
+//     for (int i = 1; i <= 3; i++) {
+//         for (int j = 1; j <= n; j++) {
+//             if ((i + j) % 4 == 0 || (i == 2 && j % 4 == 0))
+//                 cout << "*";
+//             else
+//                 cout << " ";
+//         }
+//         cout << endl;
+//     }
+// return 0;
+// }
+
+
+// 🔷 100. Palindrome Triangle
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = 1; i <= n; i++) {
+//         for (int j = 1; j <= n-i; j++) cout << " ";
+
+//         for (int j = i; j >= 1; j--) cout << j;
+//         for (int j = 2; j <= i; j++) cout << j;
+
+//         cout << endl;
+//     }
+// retrun 0;
+// }
+
+// 🔷 101. X Pattern
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = 1; i <= n; i++) {
+//         for (int j = 1; j <= n; j++) {
+//             if (j == i || j == n-i+1)
+//                 cout << "*";
+//             else
+//                 cout << " ";
+//         }
+//         cout << endl;
+//     }
+// return 0;
+// }
+
+
+
+
+// 🔷 102. Sandglass Pattern
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for (int i = n; i >= 1; i--) {
+//         for (int j = 1; j <= n-i; j++) cout << " ";
+//         for (int j = 1; j <= 2*i-1; j++) cout << "*";
+//         cout << endl;
+//     }
+
+//     for (int i = 2; i <= n; i++) {
+//         for (int j = 1; j <= n-i; j++) cout << " ";
+//         for (int j = 1; j <= 2*i-1; j++) cout << "*";
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+// 103🔹 LeetCode #217 — Contains Duplicate
+
+// Problem: Check if any value appears at least twice.
+
+// #include <iostream>
+// #include <vector>
+// #include <set>
+// using namespace std;
+
+// class Solution {
+// public:
+//     bool containsDuplicate(vector<int>& nums) {
+//         set<int> s;
+
+//         for(int x : nums) {
+//             if(s.count(x)) return true;
+//             s.insert(x);
+//         }
+//         return false;
+//     }
+// };
+
+
+
+// 104🔹 LeetCode #283 — Move Zeroes
+
+// Problem: Move all zeroes to end while maintaining order.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     void moveZeroes(vector<int>& nums) {
+//         int j = 0;
+
+//         for(int i = 0; i < nums.size(); i++) {
+//             if(nums[i] != 0) {
+//                 swap(nums[i], nums[j]);
+//                 j++;
+//             }
+//         }
+//     }
+// };
+
+
+
+// 105🔹 HackerRank — Compare the Triplets
+
+// Problem: Compare scores of Alice and Bob.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// vector<int> compareTriplets(vector<int> a, vector<int> b) {
+//     int alice = 0, bob = 0;
+
+//     for(int i = 0; i < 3; i++) {
+//         if(a[i] > b[i]) alice++;
+//         else if(a[i] < b[i]) bob++;
+//     }
+
+//     return {alice, bob};
+// }
+
+
+// 106🔹 LeetCode #169 — Majority Element
+
+// Problem: Find element appearing more than n/2 times.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int majorityElement(vector<int>& nums) {
+//         int count = 0, candidate = 0;
+
+//         for(int x : nums) {
+//             if(count == 0) candidate = x;
+//             count += (x == candidate) ? 1 : -1;
+//         }
+
+//         return candidate;
+//     }
+// };
+
+
+
+// 107🔹 HackerRank — Diagonal Difference
+
+// Problem: Difference of diagonals in square matrix.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int diagonalDifference(vector<vector<int>> arr) {
+//     int d1 = 0, d2 = 0;
+//     int n = arr.size();
+
+//     for(int i = 0; i < n; i++) {
+//         d1 += arr[i][i];
+//         d2 += arr[i][n-i-1];
+//     }
+
+//     return abs(d1 - d2);
+// }
+
+
+// 108🔹 LeetCode #125 — Valid Palindrome
+
+// Problem: Check if string is palindrome ignoring symbols.
+
+// #include <iostream>
+// using namespace std;
+
+// class Solution {
+// public:
+//     bool isPalindrome(string s) {
+//         string temp = "";
+
+//         for(char c : s) {
+//             if(isalnum(c))
+//                 temp += tolower(c);
+//         }
+
+//         int i = 0, j = temp.size() - 1;
+
+//         while(i < j) {
+//             if(temp[i] != temp[j]) return false;
+//             i++; j--;
+//         }
+
+//         return true;
+//     }
+// };
+
+
+
+// 109🔹 LeetCode #344 — Reverse String
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     void reverseString(vector<char>& s) {
+//         int i = 0, j = s.size() - 1;
+
+//         while(i < j) {
+//             swap(s[i], s[j]);
+//             i++; j--;
+//         }
+//     }
+// };
+
+
+
+// 110🔹 HackerRank — Plus Minus
+
+// Problem: Ratio of positive, negative, and zero.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// void plusMinus(vector<int> arr) {
+//     int pos=0, neg=0, zero=0;
+
+//     for(int x : arr) {
+//         if(x > 0) pos++;
+//         else if(x < 0) neg++;
+//         else zero++;
+//     }
+
+//     int n = arr.size();
+
+//     cout << (float)pos/n << endl;
+//     cout << (float)neg/n << endl;
+//     cout << (float)zero/n << endl;
+// }
+
+
+
+// 111🔹 LeetCode #242 — Valid Anagram
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     bool isAnagram(string s, string t) {
+//         if(s.size() != t.size()) return false;
+
+//         vector<int> freq(26, 0);
+
+//         for(char c : s) freq[c - 'a']++;
+//         for(char c : t) freq[c - 'a']--;
+
+//         for(int x : freq)
+//             if(x != 0) return false;
+
+//         return true;
+//     }
+// };
+
+
+
+// 112🔹 LeetCode #20 — Valid Parentheses
+// #include <iostream>
+// #include <stack>
+// using namespace std;
+
+// class Solution {
+// public:
+//     bool isValid(string s) {
+//         stack<char> st;
+
+//         for(char c : s) {
+//             if(c == '(' || c == '{' || c == '[')
+//                 st.push(c);
+//             else {
+//                 if(st.empty()) return false;
+
+//                 if((c == ')' && st.top() != '(') ||
+//                    (c == '}' && st.top() != '{') ||
+//                    (c == ']' && st.top() != '['))
+//                     return false;
+
+//                 st.pop();
+//             }
+//         }
+
+//         return st.empty();
+//     }
+// };
+
+
+// 113🔹 LeetCode #2 — Add Two Numbers
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     node* addTwoNumbers(node* l1, node* l2) {
+//         node dummy(0);
+//         node* tail = &dummy;
+//         int carry = 0;
+
+//         while(l1 || l2 || carry) {
+//             int sum = carry;
+
+//             if(l1) { sum += l1->val; l1 = l1->next; }
+//             if(l2) { sum += l2->val; l2 = l2->next; }
+
+//             carry = sum / 10;
+//             tail->next = new node(sum % 10);
+//             tail = tail->next;
+//         }
+//         return dummy.next;
+//     }
+// };
+
+// void print(node* head) {
+//     while(head) {
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* l1 = new node(2);
+//     l1->next = new node(4);
+//     l1->next->next = new node(3);
+
+//     node* l2 = new node(5);
+//     l2->next = new node(6);
+//     l2->next->next = new node(4);
+
+//     Solution obj;
+//     node* res = obj.addTwoNumbers(l1, l2);
+
+//     print(res);
+// }
+
+
+// 114🔹 HackerRank — Insert at Tail
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int data;
+//     node* next;
+//     node(int x) {
+//         data = x;
+//         next = NULL;
+//     }
+// };
+
+// node* insertAtTail(node* head, int data) {
+//     node* newNode = new node(data);
+
+//     if(head == NULL) return newNode;
+
+//     node* temp = head;
+//     while(temp->next)
+//         temp = temp->next;
+
+//     temp->next = newNode;
+//     return head;
+// }
+
+// void print(node* head) {
+//     while(head) {
+//         cout << head->data << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = NULL;
+
+//     head = insertAtTail(head, 1);
+//     head = insertAtTail(head, 2);
+//     head = insertAtTail(head, 3);
+
+//     print(head);
+// }
+
+
+// 115🔹 LeetCode #160 — Intersection of Two Lists
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     node* getIntersectionNode(node* headA, node* headB) {
+//         node* a = headA;
+//         node* b = headB;
+
+//         while(a != b) {
+//             a = (a == NULL) ? headB : a->next;
+//             b = (b == NULL) ? headA : b->next;
+//         }
+//         return a;
+//     }
+// };
+
+// int main() {
+//     node* common = new node(8);
+//     common->next = new node(10);
+
+//     node* l1 = new node(3);
+//     l1->next = new node(7);
+//     l1->next->next = common;
+
+//     node* l2 = new node(99);
+//     l2->next = common;
+
+//     Solution obj;
+//     node* res = obj.getIntersectionNode(l1, l2);
+
+//     if(res) cout << res->val;
+// }
+
+
+// 116🔹 HackerRank — Insert at Position
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int data;
+//     node* next;
+//     node(int x) {
+//         data = x;
+//         next = NULL;
+//     }
+// };
+
+// node* insertAtPosition(node* head, int data, int pos) {
+//     node* newNode = new node(data);
+
+//     if(pos == 0) {
+//         newNode->next = head;
+//         return newNode;
+//     }
+
+//     node* temp = head;
+//     for(int i = 0; i < pos-1; i++)
+//         temp = temp->next;
+
+//     newNode->next = temp->next;
+//     temp->next = newNode;
+
+//     return head;
+// }
+
+// void print(node* head) {
+//     while(head) {
+//         cout << head->data << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(3);
+
+//     head = insertAtPosition(head, 2, 1);
+
+//     print(head);
+// }
+
+// 117🔹 LeetCode #82 — Remove Duplicates II
+
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     node* deleteDuplicates(node* head) {
+//         node dummy(0);
+//         dummy.next = head;
+//         node* prev = &dummy;
+
+//         while(head) {
+//             if(head->next && head->val == head->next->val) {
+//                 while(head->next && head->val == head->next->val)
+//                     head = head->next;
+//                 prev->next = head->next;
+//             } else {
+//                 prev = prev->next;
+//             }
+//             head = head->next;
+//         }
+//         return dummy.next;
+//     }
+// };
+
+// void print(node* head) {
+//     while(head) {
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(1);
+//     head->next->next = new node(2);
+
+//     Solution obj;
+//     head = obj.deleteDuplicates(head);
+
+//     print(head);
+// }
+
+// 118🔹 HackerRank — Delete Node
+
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int data;
+//     node* next;
+//     node(int x) {
+//         data = x;
+//         next = NULL;
+//     }
+// };
+
+// node* deleteNode(node* head, int pos) {
+//     if(pos == 0) return head->next;
+
+//     node* temp = head;
+//     for(int i = 0; i < pos-1; i++)
+//         temp = temp->next;
+
+//     temp->next = temp->next->next;
+//     return head;
+// }
+
+// void print(node* head) {
+//     while(head) {
+//         cout << head->data << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = new node(3);
+
+//     head = deleteNode(head, 1);
+
+//     print(head);
+// }
+
+// 119🔹 LeetCode #61 — Rotate List
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     node* rotateRight(node* head, int k) {
+//         if(!head || !head->next) return head;
+
+//         node* temp = head;
+//         int len = 1;
+
+//         while(temp->next) {
+//             temp = temp->next;
+//             len++;
+//         }
+
+//         temp->next = head;
+//         k = k % len;
+//         int steps = len - k;
+
+//         while(steps--)
+//             temp = temp->next;
+
+//         node* newHead = temp->next;
+//         temp->next = NULL;
+
+//         return newHead;
+//     }
+// };
+
+// void print(node* head) {
+//     while(head) {
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = new node(3);
+
+//     Solution obj;
+//     head = obj.rotateRight(head, 1);
+
+//     print(head);
+// }
+
+// 120🔹 HackerRank — Print Linked List
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int data;
+//     node* next;
+//     node(int x) {
+//         data = x;
+//         next = NULL;
+//     }
+// };
+
+// void printList(node* head) {
+//     while(head) {
+//         cout << head->data << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+
+//     printList(head);
+// }
+// 121🔹 LeetCode #328 — Odd Even Linked List
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int val;
+//     node* next;
+//     node(int x) {
+//         val = x;
+//         next = NULL;
+//     }
+// };
+
+// class Solution {
+// public:
+//     node* oddEvenList(node* head) {
+//         if(!head) return head;
+
+//         node* odd = head;
+//         node* even = head->next;
+//         node* evenHead = even;
+
+//         while(even && even->next) {
+//             odd->next = even->next;
+//             odd = odd->next;
+
+//             even->next = odd->next;
+//             even = even->next;
+//         }
+
+//         odd->next = evenHead;
+//         return head;
+//     }
+// };
+
+// void print(node* head) {
+//     while(head) {
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = new node(3);
+//     head->next->next->next = new node(4);
+
+//     Solution obj;
+//     head = obj.oddEvenList(head);
+
+//     print(head);
+// }
+
+
+// 123🔹 HackerRank — Reverse Print
+
+// #include <iostream>
+// using namespace std;
+
+// class node {
+// public:
+//     int data;
+//     node* next;
+//     node(int x) {
+//         data = x;
+//         next = NULL;
+//     }
+// };
+
+// void reversePrint(node* head) {
+//     if(head == NULL) return;
+
+//     reversePrint(head->next);
+//     cout << head->data << " ";
+// }
+
+// int main() {
+//     node* head = new node(1);
+//     head->next = new node(2);
+//     head->next->next = new node(3);
+
+//     reversePrint(head);
+// }
+
+
+// 124🔹. HackerRank – Continuous Character Triangle
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     char ch = 'A';
+//     for(int i = 1; i <= n; i++) {
+//         for(int j = 1; j <= i; j++) {
+//             cout << ch++;
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+// 125🔹. HackerRank – Mirror Right Triangle
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for(int i = 1; i <= n; i++) {
+//         for(int j = 1; j <= n-i; j++) cout << " ";
+//         for(int j = 1; j <= i; j++) cout << "*";
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+
+// 126🔹. HackerRank – Double Number Triangle
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for(int i = 1; i <= n; i++) {
+//         for(int j = 1; j <= i; j++) cout << j;
+//         for(int j = i; j >= 1; j--) cout << j;
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+// 127. HackerRank – Row-wise Same Number Triangle
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for(int i = 1; i <= n; i++) {
+//         for(int j = 1; j <= i; j++) {
+//             cout << i;
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+
+// 128. HackerRank – Reverse Alphabet Triangle
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for(int i = n; i >= 1; i--) {
+//         char ch = 'A';
+//         for(int j = 1; j <= i; j++) {
+//             cout << ch++;
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+// 129. HackerRank – Centered Star Pyramid
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for(int i = 1; i <= n; i++) {
+//         for(int j = 1; j <= n-i; j++) cout << " ";
+//         for(int j = 1; j <= 2*i-1; j++) cout << "*";
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+
+// 130. HackerRank – Inverted Center Pyramid
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for(int i = n; i >= 1; i--) {
+//         for(int j = 1; j <= n-i; j++) cout << " ";
+//         for(int j = 1; j <= 2*i-1; j++) cout << "*";
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+// 131🔹. LeetCode Style – Matrix Diagonal Pattern
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     for(int i = 0; i < n; i++) {
+//         for(int j = 0; j < n; j++) {
+//             if(i == j) cout << "1 ";
+//             else cout << "0 ";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+// 132🔹. HackerRank – Checkerboard Pattern
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n, m;
+//     cin >> n >> m;
+
+//     for(int i = 0; i < n; i++) {
+//         for(int j = 0; j < m; j++) {
+//             if((i + j) % 2 == 0) cout << "*";
+//             else cout << "#";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+// 133🔹. HackerRank – Hourglass Star Pattern
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+
+//     for(int i = n; i >= 1; i--) {
+//         for(int j = 0; j < n-i; j++) cout << " ";
+//         for(int j = 0; j < i; j++) cout << "* ";
+//         cout << endl;
+//     }
+
+//     for(int i = 2; i <= n; i++) {
+//         for(int j = 0; j < n-i; j++) cout << " ";
+//         for(int j = 0; j < i; j++) cout << "* ";
+//         cout << endl;
 //     }
 
 //     return 0;
 // }
+
+
