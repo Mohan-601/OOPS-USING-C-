@@ -1,4 +1,4 @@
-//1.wap for two numbers
+//1.wap for sum of  two numbers
 
 // #include <iostream>
 // using namespace std;
@@ -4826,4 +4826,126 @@
 //     return 0;
 // }
 
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Wallet {
+private:
+    double balance;
+    vector<double> transactions;
+
+public:
+    Wallet(double b = 0) {
+        balance = b;
+    }
+
+    // + operator (add money OR merge wallets)
+    Wallet operator + (const Wallet &w) {
+        return Wallet(balance + w.balance);
+    }
+
+    // - operator (spend money)
+    Wallet operator - (double amount) {
+        return Wallet(balance - amount);
+    }
+
+    // == operator
+    bool operator == (const Wallet &w) {
+        return balance == w.balance;
+    }
+
+   
+    bool operator > (const Wallet &w) {
+        return balance > w.balance;
+    }
+
+
+    bool operator < (const Wallet &w) {
+        return balance < w.balance;
+    }
+
+
+    Wallet& operator = (const Wallet &w) {
+        if(this != &w) {
+            balance = w.balance;
+            transactions = w.transactions;
+        }
+        return *this;
+    }
+
+   
+    Wallet operator ++ () {
+        balance += 100; 
+        return *this;
+    }
+
+
+    Wallet operator ++ (int) {
+        Wallet temp = *this;
+        balance += 100;
+        return temp;
+    }
+
+ 
+    double operator [] (int index) {
+        return transactions[index];
+    }
+
+    
+    void operator () (double rate) {
+        balance += balance * rate / 100;
+    }
+
+    
+    void addTransaction(double amt) {
+        transactions.push_back(amt);
+    }
+
+    friend ostream& operator << (ostream &out, const Wallet &w) {
+        out << "Balance: " << w.balance;
+        return out;
+    }
+
+  
+    friend istream& operator >> (istream &in, Wallet &w) {
+        in >> w.balance;
+        return in;
+    }
+};
+
+int main() {
+    Wallet w1(1000), w2(500);
+
+    
+    Wallet w3 = w1 + w2;
+
+   
+    w3 = w3 - 200;
+
+
+    if(w1 > w2)
+        cout << "w1 has more money\n";
+
+   
+    ++w1;
+
+   
+    w2 = w1;
+
+    
+    w1(10); 
+
+ 
+    w1.addTransaction(200);
+    w1.addTransaction(-50);
+
+    cout << "Transaction[0]: " << w1[0] << endl;
+
+  
+    cout << w1 << endl;
+
+    return 0;
+}
 
