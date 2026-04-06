@@ -484,7 +484,7 @@
 //         cout << "Length: " << length << endl;
 //         cout << "Breadth: " << breadth << endl;
 //         cout << "Area: " << length * breadth << endl;
-//         cout << "------------------\n";
+//        
 //     }
 // };
 
@@ -589,7 +589,6 @@
 
  
 // 24.wap to print check for pallindrome
-
 
 // #include <iostream>
 // using namespace std;

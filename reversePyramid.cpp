@@ -1,17 +1,17 @@
-// wap to print pyramid of star
+// wap to print star upside down pyramid
 
 #include <iostream>
 using namespace std;
 
-class Pyramid {
+class InvertedPyramid {
     int n;
 public:
-    Pyramid(int rows) {
+    InvertedPyramid(int rows) {
         n = rows;
     }
 
     void display() {
-        for(int i = 1; i <= n; i++) {
+        for(int i = n; i >= 1; i--) {
             for(int space = 1; space <= n-i; space++)
                 cout << " ";
 
@@ -22,12 +22,13 @@ public:
         }
     }
 };
+
 int main() {
     int rows;
     cout << "Enter number of rows: ";
     cin >> rows;
 
-    Pyramid obj(rows);
+    InvertedPyramid obj(rows);
     obj.display();
 
     return 0;
