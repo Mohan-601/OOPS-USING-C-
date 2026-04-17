@@ -1,4 +1,4 @@
-// 31. WAP to check for LCM
+// WAP to check for LCM
 
 #include <iostream>
 using namespace std;

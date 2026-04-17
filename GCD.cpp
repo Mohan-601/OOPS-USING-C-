@@ -1,4 +1,4 @@
-// 30.WAP TO CALCULATE GCD 
+// WAP TO CALCULATE GCD 
 
 
 #include <iostream>
