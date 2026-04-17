@@ -321,7 +321,8 @@
 // }
 
 
-// 17.WAP to demonstrate default constructor 
+// 17.WAP to demonstrate default constructor
+
 
 // #include <iostream>
 // using namespace std;
@@ -350,7 +351,8 @@
 // }
 
 
-// 18.WAP to demonstrate parameterized constructor 
+// 18.WAP to demonstrate parameterized constructor
+
 
 // #include <iostream>
 // using namespace std;
@@ -380,7 +382,8 @@
 
 
 
-// 19. WAP to demonstrate copy constructor 
+// 19. WAP to demonstrate copy constructor
+
  
 // #include <iostream>
 // using namespace std;
@@ -393,7 +396,7 @@
 //     }
 
    
-//     Student(const Student &s) {
+//     Student( Student &s) {
 //         roll = s.roll;
 //       
 //     }
@@ -411,7 +414,8 @@
 // }
 
 
-// 20.WAP to demonstrate move constructor 
+// 20.WAP to demonstrate move constructor
+
 
 // #include <iostream>
 // using namespace std;
@@ -616,7 +620,7 @@
 //     }
 // };
 
-// 25.wap to print sum of digits of a numeber
+// 25.wap to print sum of digits of a number
 
 
 // #include <iostream>
@@ -911,15 +915,15 @@
 // class PascalTriangle {
 // public:
 //     void generate(int n) {
-//         for (int i = 0; i < n; i++) {
-//            
-//             for (int space = 0; space < n - i - 1; space++) {
+//         for (int i = 1; i < n; i++) {
+           
+//             for (int space = 1; space < n - i ; space++) {
 //                 cout << " ";
 //             }
 //             int number = 1;
-//             for (int j = 0; j <= i; j++) {
+//             for (int j = 1; j <= i; j++) {
 //                 cout << number << " ";
-//                 number = number * (i - j) / (j + 1);
+//                 number = number * (i - j) / (j );
 //             }
 //             cout << endl;
 //         }
@@ -1262,6 +1266,7 @@
 // };
 // int main(){
 // Student s1;//default constructor
+
 // s1.input();
 // s1.calculate();
 // s1.display();
@@ -1421,6 +1426,9 @@
 //     ArrayInsert obj;
 //     obj.insertElement();
 // }
+
+
+
 // 44.wap to delete a particular element in a given array
 // #include <iostream>
 // using namespace std;
@@ -1808,14 +1816,7 @@
 //             // data = value;  
 //             next = nullptr;
 //          }
-//          void display(node* head){
-//           node* p = head;
-//           while(p)     
-//           {             
-//             cout<<p->data<<"->";
-//             p = p->next;  
-//           }
-//          }
+//       
 // };
 //   void display(node* head){
 //           node* p = head;
@@ -2329,7 +2330,8 @@
 //     bool issued;
 
 // public:
-//     // Constructor
+//     // constructor
+
 //     Library() {
 //         issued = false;
 //     }
@@ -4825,126 +4827,238 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Wallet {
+// private:
+//     double balance;
+//     vector<double> transactions;
+
+// public:
+//     Wallet(double b = 0) {
+//         balance = b;
+//     }
+
+//     // + operator (add money OR merge wallets)
+//     Wallet operator + (const Wallet &w) {
+//         return Wallet(balance + w.balance);
+//     }
+
+//     // - operator (spend money)
+//     Wallet operator - (double amount) {
+//         return Wallet(balance - amount);
+//     }
+
+//     // == operator
+//     bool operator == (const Wallet &w) {
+//         return balance == w.balance;
+//     }
+
+//     // > operator
+//     bool operator > (const Wallet &w) {
+//         return balance > w.balance;
+//     }
+
+//     // < operator
+//     bool operator < (const Wallet &w) {
+//         return balance < w.balance;
+//     }
+
+//     // Assignment operator
+//     Wallet& operator = (const Wallet &w) {
+//         if(this != &w) {
+//             balance = w.balance;
+//             transactions = w.transactions;
+//         }
+//         return *this;
+//     }
+
+//     // Prefix ++ (deposit fixed amount)
+//     Wallet operator ++ () {
+//         balance += 100; // deposit ₹100
+//         return *this;
+//     }
+
+//     // Postfix ++
+//     Wallet operator ++ (int) {
+//         Wallet temp = *this;
+//         balance += 100;
+//         return temp;
+//     }
+
+//     // [] operator (transaction access)
+//     double operator [] (int index) {
+//         return transactions[index];
+//     }
+
+//     // () operator (apply interest)
+//     void operator () (double rate) {
+//         balance += balance * rate / 100;
+//     }
+
+//     // Add transaction
+//     void addTransaction(double amt) {
+//         transactions.push_back(amt);
+//     }
+
+//     // << operator
+//     friend ostream& operator << (ostream &out, const Wallet &w) {
+//         out << "Balance: " << w.balance;
+//         return out;
+//     }
+
+//     // >> operator
+//     friend istream& operator >> (istream &in, Wallet &w) {
+//         in >> w.balance;
+//         return in;
+//     }
+// };
+
+// int main() {
+//     Wallet w1(1000), w2(500);
+
+//     // Add money (merge wallets)
+//     Wallet w3 = w1 + w2;
+
+//     // Spend money
+//     w3 = w3 - 200;
+
+//     // Compare
+//     if(w1 > w2)
+//         cout << "w1 has more money\n";
+
+//     // Deposit
+//     ++w1;
+
+//     // Assignment
+//     w2 = w1;
+
+//     // Interest
+//     w1(10); // 10% interest
+
+//     // Transactions
+//     w1.addTransaction(200);
+//     w1.addTransaction(-50);
+
+//     cout << "Transaction[0]: " << w1[0] << endl;
+
+//     // Output
+//     cout << w1 << endl;}
+
 
 #include <iostream>
-#include <vector>
 using namespace std;
 
-class Wallet {
-private:
-    double balance;
-    vector<double> transactions;
+// ----------- Base Stack -----------
+class StackBase {
+protected:
+    static const int MAX = 10;
+    const char* arr[MAX];
+    int topIndex;
 
 public:
-    Wallet(double b = 0) {
-        balance = b;
+    StackBase() {
+        topIndex = -1;
     }
 
-    // + operator (add money OR merge wallets)
-    Wallet operator + (const Wallet &w) {
-        return Wallet(balance + w.balance);
-    }
-
-    // - operator (spend money)
-    Wallet operator - (double amount) {
-        return Wallet(balance - amount);
-    }
-
-    // == operator
-    bool operator == (const Wallet &w) {
-        return balance == w.balance;
-    }
-
-   
-    bool operator > (const Wallet &w) {
-        return balance > w.balance;
-    }
-
-
-    bool operator < (const Wallet &w) {
-        return balance < w.balance;
-    }
-
-
-    Wallet& operator = (const Wallet &w) {
-        if(this != &w) {
-            balance = w.balance;
-            transactions = w.transactions;
+    void push(const char* action) {
+        if (topIndex == MAX - 1) {
+            cout << "Overflow\n";
+            return;
         }
-        return *this;
+        arr[++topIndex] = action;
     }
 
-   
-    Wallet operator ++ () {
-        balance += 100; 
-        return *this;
+    const char* pop() {
+        if (topIndex == -1) {
+            return NULL;
+        }
+        return arr[topIndex--];
     }
 
-
-    Wallet operator ++ (int) {
-        Wallet temp = *this;
-        balance += 100;
-        return temp;
+    bool isEmpty() {
+        return topIndex == -1;
     }
 
- 
-    double operator [] (int index) {
-        return transactions[index];
-    }
-
-    
-    void operator () (double rate) {
-        balance += balance * rate / 100;
-    }
-
-    
-    void addTransaction(double amt) {
-        transactions.push_back(amt);
-    }
-
-    friend ostream& operator << (ostream &out, const Wallet &w) {
-        out << "Balance: " << w.balance;
-        return out;
-    }
-
-  
-    friend istream& operator >> (istream &in, Wallet &w) {
-        in >> w.balance;
-        return in;
+    const char* top() {
+        if (topIndex == -1)
+            return NULL;
+        return arr[topIndex];
     }
 };
 
+// ----------- Undo / Redo -----------
+class UndoStack : public StackBase {};
+class RedoStack : public StackBase {};
+
+// ----------- Manager -----------
+class EditorStackManager {
+    UndoStack undoStack;
+    RedoStack redoStack;
+
+public:
+    void performAction(const char* action) {
+        undoStack.push(action);
+
+        // clear redo stack
+        while (!redoStack.isEmpty()) {
+            redoStack.pop();
+        }
+
+        cout << "Performed: " << action << endl;
+    }
+
+    void undo() {
+        if (undoStack.isEmpty()) {
+            cout << "Nothing to undo\n";
+            return;
+        }
+
+        const char* action = undoStack.pop();
+        redoStack.push(action);
+
+        cout << "Undo: " << action << endl;
+    }
+
+    void redo() {
+        if (redoStack.isEmpty()) {
+            cout << "Nothing to redo\n";
+            return;
+        }
+
+        const char* action = redoStack.pop();
+        undoStack.push(action);
+
+        cout << "Redo: " << action << endl;
+    }
+
+    void showTop() {
+        const char* t = undoStack.top();
+        if (t != NULL)
+            cout << "Top: " << t << endl;
+        else
+            cout << "Empty\n";
+    }
+};
+
+// ----------- Main -----------
 int main() {
-    Wallet w1(1000), w2(500);
+    EditorStackManager e;
 
-    
-    Wallet w3 = w1 + w2;
+    e.performAction("A");
+    e.performAction("B");
+    e.performAction("C");
 
-   
-    w3 = w3 - 200;
+    e.showTop();
 
+    e.undo();
+    e.undo();
 
-    if(w1 > w2)
-        cout << "w1 has more money\n";
+    e.redo();
 
-   
-    ++w1;
-
-   
-    w2 = w1;
-
-    
-    w1(10); 
-
- 
-    w1.addTransaction(200);
-    w1.addTransaction(-50);
-
-    cout << "Transaction[0]: " << w1[0] << endl;
-
-  
-    cout << w1 << endl;
+    e.showTop();
 
     return 0;
 }
-
