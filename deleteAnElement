@@ -1,0 +1,47 @@
+
+//wap to delete a particular element in a given array
+#include <iostream>
+using namespace std;
+
+class ArrayDelete {
+public:
+    void deleteElement() {
+        int arr[100], n, value, pos=-1;
+
+        cout<<"Enter size: ";
+        cin>>n;
+
+        cout<<"Enter elements:\n";
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+
+        cout<<"Enter element to delete: ";
+        cin>>value;
+
+        for(int i=0;i<n;i++){
+            if(arr[i]==value){
+                pos=i;
+                break;
+            }
+        }
+
+        if(pos==-1){
+            cout<<"Element not found";
+            return;
+        }
+
+        for(int i=pos;i<n-1;i++)
+            arr[i]=arr[i+1];
+
+        n--;
+
+        cout<<"Array after deletion:\n";
+        for(int i=0;i<n;i++)
+            cout<<arr[i]<<" ";
+    }
+};
+
+int main(){
+    ArrayDelete obj;
+    obj.deleteElement();
+}

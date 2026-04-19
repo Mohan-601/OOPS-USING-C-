@@ -1613,6 +1613,8 @@
 //     HollowPyramid obj;
 //     obj.print(5);
 // }
+
+
 // 50.wap to print hollow diamond
 // #include <iostream>
 // using namespace std;
@@ -1656,7 +1658,6 @@
 // 51.wap to print x star pattern
 // #include <iostream>
 // using namespace std;
-
 // class XPattern {
 // public:
 //     void print(int n){
@@ -1676,6 +1677,8 @@
 //     XPattern obj;
 //     obj.print(5);
 // }
+
+
 // 52.wap to print binary triangle
 // #include <iostream>
 // using namespace std;
@@ -1696,6 +1699,8 @@
 //     BinaryTriangle obj;
 //     obj.print(5);
 // }
+
+
 // 53.wap to print star butterfly
 // #include <iostream>
 // using namespace std;
