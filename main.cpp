@@ -1743,6 +1743,8 @@
 //     Butterfly obj;
 //     obj.print(5);
 // }
+
+
 // 54.wap to check for a perfect number
 // #include <iostream>
 // using namespace std;
@@ -1774,6 +1776,9 @@
 
 //     obj.check(n);
 // }
+
+
+
 // 55. wap to check for prime number
 // #include <iostream>
 // using namespace std;
@@ -1840,6 +1845,7 @@
 //     n1->next = n2;
 //     n2->next =n3;
 //     display(n1);
+// return 0;
 // }
 
 
@@ -1871,7 +1877,9 @@
 //     n2->next =n3;
 //     n1 = insertatstart(n1,90);
 //     return 0;
-//  }                      
+//  }                  
+
+
 // 58. wap to insert an element at the end of the linked lis
 // #include<iostream>
 // using namespace std;
@@ -1909,97 +1917,78 @@
 // #include <iostream>
 // using namespace std;
 
-// class Node {
-// public:
+// struct Node {
 //     int data;
 //     Node* next;
 // };
 
-// class LinkedList {
-// private:
-//     Node* head;
+// void insertBefore(Node*& head, int key, int newData) {
 
-// public:
-//     LinkedList() {
-//         head = NULL;
+//     if (head == NULL) {
+//         cout << "List is empty\n";
+//         return;
 //     }
 
-//     void insertEnd(int value) {
+    
+//     if (head->data == key) {
 //         Node* newNode = new Node();
-//         newNode->data = value;
-//         newNode->next = NULL;
-
-//         if(head == NULL) {
-//             head = newNode;
-//             return;
-//         }
-
-//         Node* temp = head;
-//         while(temp->next != NULL)
-//             temp = temp->next;
-
-//         temp->next = newNode;
+//         newNode->data = newData;
+//         newNode->next = head;
+//         head = newNode;
+//         return;
 //     }
 
-//     void insertBefore(int target, int value) {
+//     Node* curr = head;
 
-//         if(head == NULL) {
-//             cout<<"List is empty\n";
-//             return;
-//         }
-
-//         if(head->data == target) {
-//             Node* newNode = new Node();
-//             newNode->data = value;
-//             newNode->next = head;
-//             head = newNode;
-//             return;
-//         }
-
-//         Node* temp = head;
-
-//         while(temp->next != NULL && temp->next->data != target)
-//             temp = temp->next;
-
-//         if(temp->next == NULL) {
-//             cout<<"Target not found\n";
-//             return;
-//         }
-
-//         Node* newNode = new Node();
-//         newNode->data = value;
-//         newNode->next = temp->next;
-//         temp->next = newNode;
+//     while (curr->next != NULL && curr->next->data != key) {
+//         curr = curr->next;
 //     }
 
-//     void display() {
-//         Node* temp = head;
-//         while(temp != NULL) {
-//             cout<<temp->data<<" -> ";
-//             temp = temp->next;
-//         }
-//         cout<<"NULL\n";
+
+//     if (curr->next == NULL) {
+//         cout << "Element not found\n";
+//         return;
 //     }
-// };
 
-// int main() {
-
-//     LinkedList list;
-
-//     list.insertEnd(10);
-//     list.insertEnd(20);
-//     list.insertEnd(30);
-//     list.insertEnd(40);
-
-//     cout<<"Original List:\n";
-//     list.display();
-
-//     list.insertBefore(30,25);
-//  
-//     list.display();
-// return 0;
+    
+//     Node* newNode = new Node();
+//     newNode->data = newData;
+//     newNode->next = curr->next;
+//     curr->next = newNode;
 // }
 
+
+// void display(Node* head) {
+//     while (head != NULL) {
+//         cout << head->data << " -> ";
+//         head = head->next;
+//     }
+//     cout << "NULL\n";
+// }
+
+// int main() {
+   
+//     Node* head = new Node{10, NULL};
+//     head->next = new Node{20, NULL};
+//     head->next->next = new Node{30, NULL};
+//     head->next->next->next = new Node{40, NULL};
+
+//     cout << "Original List:\n";
+//     display(head);
+
+//     int key, value;
+//     cout << "Enter element before which to insert: ";
+//     cin >> key;
+//     cout << "Enter new value: ";
+//     cin >> value;
+
+//     insertBefore(head, key, value);
+
+//     cout << "Updated List:\n";
+//     display(head);
+
+//     return 0;
+// }
 
 
 // 60.wap to delete an element at the start of a linked list
@@ -2028,6 +2017,8 @@
 //     n2->next =n3;
 //     n1 = n1->deleteatstart(n1);
 //     return 0;}
+
+
 
 // 61.wap to delete an element at the end of a linked list
 // #include <iostream>
@@ -2060,98 +2051,85 @@
 //     return 0;}
 
 
+
+
 // 62.wap to delete before an element in a linked list
 // #include <iostream>
 // using namespace std;
 
-// class Node {
-// public:
+// struct Node {
 //     int data;
 //     Node* next;
 // };
 
-// class LinkedList {
-// private:
-//     Node* head;
+// void deleteBefore(Node*& head, int key) {
 
-// public:
-//     LinkedList() {
-//         head = NULL;
+//     if (head == NULL || head->next == NULL) {
+//         cout << "Deletion not possible\n";
+//         return;
 //     }
 
-//     void insertEnd(int value) {
-//         Node* newNode = new Node();
-//         newNode->data = value;
-//         newNode->next = NULL;
-
-//         if(head == NULL) {
-//             head = newNode;
-//             return;
-//         }
-
-//         Node* temp = head;
-//         while(temp->next != NULL)
-//             temp = temp->next;
-
-//         temp->next = newNode;
+    
+//     if (head->data == key) {
+//         cout << "No node exists before the given element\n";
+//         return;
 //     }
 
-//     void deleteBefore(int target) {
+//     Node *prev = NULL, *curr = head, *nextNode = head->next;
 
-//         if(head == NULL || head->next == NULL) {
-//             cout<<"Not enough nodes\n";
-//             return;
-//         }
-
-//         if(head->next->data == target) {
-//             Node* temp = head;
-//             head = head->next;
-//             delete temp;
-//             return;
-//         }
-
-//         Node* temp = head;
-
-//         while(temp->next->next != NULL && temp->next->next->data != target)
-//             temp = temp->next;
-
-//         if(temp->next->next == NULL) {
-//             cout<<"Target not found\n";
-//             return;
-//         }
-
-//         Node* del = temp->next;
-//         temp->next = del->next;
-//         delete del;
+//     // Traverse list
+//     while (nextNode != NULL && nextNode->data != key) {
+//         prev = curr;
+//         curr = nextNode;
+//         nextNode = nextNode->next;
 //     }
 
-//     void display() {
-//         Node* temp = head;
-//         while(temp != NULL) {
-//             cout<<temp->data<<" -> ";
-//             temp = temp->next;
-//         }
-//         cout<<"NULL\n";
+//     // If key not found
+//     if (nextNode == NULL) {
+//         cout << "Element not found\n";
+//         return;
 //     }
-// };
+
+//     // Deleting node before key
+//     if (prev == NULL) {
+//         // Delete head
+//         head = curr->next;
+//         delete curr;
+//     } else {
+//         prev->next = curr->next;
+//         delete curr;
+//     }
+
+//     cout << "Node deleted successfully\n";
+// }
+
+// void display(Node* head) {
+//     while (head != NULL) {
+//         cout << head->data << " -> ";
+//         head = head->next;
+//     }
+//     cout << "NULL\n";
+// }
 
 // int main() {
+//     Node* head = new Node{10, NULL};
+//     head->next = new Node{20, NULL};
+//     head->next->next = new Node{30, NULL};
+//     head->next->next->next = new Node{40, NULL};
 
-//     LinkedList list;
+//     cout << "Original List:\n";
+//     display(head);
 
-//     list.insertEnd(10);
-//     list.insertEnd(20);
-//     list.insertEnd(30);
-//     list.insertEnd(40);
+//     int key;
+//     cout << "Enter element: ";
+//     cin >> key;
 
-//     cout<<"Original List:\n";
-//     list.display();
+//     deleteBefore(head, key);
 
-//     list.deleteBefore(30);
+//     cout << "Updated List:\n";
+//     display(head);
 
-//     cout<<"After Deleting Before 30:\n";
-//     list.display();
-// return 0
+//     return 0;
 // }
 
 
@@ -2160,87 +2138,45 @@
 // #include <iostream>
 // using namespace std;
 
-// class Node {
-// public:
+// struct Node {
 //     int data;
 //     Node* next;
 // };
 
-// class LinkedList {
-// private:
-//     Node* head;
-
-// public:
-//     LinkedList() {
-//         head = NULL;
+// bool search(Node* head, int key) {
+//     Node* current = head;
+//     while (current != NULL) {
+//         if (current->data == key)
+//             return true;
+//         current = current->next;
 //     }
-
-//     void insertEnd(int value) {
-//         Node* newNode = new Node();
-//         newNode->data = value;
-//         newNode->next = NULL;
-
-//         if(head == NULL) {
-//             head = newNode;
-//             return;
-//         }
-
-//         Node* temp = head;
-
-//         while(temp->next != NULL)
-//             temp = temp->next;
-
-//         temp->next = newNode;
-//     }
-
-//     void search(int key) {
-
-//         Node* temp = head;
-//         int position = 1;
-
-//         while(temp != NULL) {
-
-//             if(temp->data == key) {
-//                 cout<<"Element found at position "<<position<<endl;
-//                 return;
-//             }
-
-//             temp = temp->next;
-//             position++;
-//         }
-
-//         cout<<"Element not found"<<endl;
-//     }
-
-//     void display() {
-//         Node* temp = head;
-
-//         while(temp != NULL) {
-//             cout<<temp->data<<" -> ";
-//             temp = temp->next;
-//         }
-
-//         cout<<"NULL"<<endl;
-//     }
-// };
+//     return false;
+// }
 
 // int main() {
 
-//     LinkedList list;
+//     Node* head = new Node();
+//     head->data = 10;
 
-//     list.insertEnd(10);
-//     list.insertEnd(20);
-//     list.insertEnd(30);
-//     list.insertEnd(40);
+//     head->next = new Node();
+//     head->next->data = 20;
 
-//     cout<<"Linked List:"<<endl;
-//     list.display();
+//     head->next->next = new Node();
+//     head->next->next->data = 30;
+
+//     head->next->next->next = new Node();
+//     head->next->next->next->data = 40;
+
+//     head->next->next->next->next = NULL;
 
 //     int key;
-//     cout<<"Enter element to search: ";
-//     cin>>key;
+//     cout << "Enter element to search: ";
+//     cin >> key;
 
-//     list.search(key);
+//     if (search(head, key))
+//         cout << "Element found in the linked list.";
+//     else
+//         cout << "Element not found in the linked list.";
 
 //     return 0;
 // }
@@ -2249,77 +2185,41 @@
 // #include <iostream>
 // using namespace std;
 
-// class Node {
-// public:
+// struct Node {
 //     int data;
 //     Node* next;
-
-//     Node(int val) {
-//         data = val;
-//         next = NULL;
-//     }
 // };
 
-// class LinkedList {
-// private:
-//     Node* head;
+// void reverseList(Node*& head) {
+//     Node* prev = NULL;
+//     Node* curr = head;
+//     Node* next = NULL;
 
-// public:
-//     LinkedList() {
-//         head = NULL;
+//     while (curr != NULL) {
+//         next = curr->next;
+//         curr->next = prev;
+//         prev = curr;
+//         curr = next;
 //     }
+//     head = prev;
+// }
 
-//     void insert(int val) {
-//         Node* newNode = new Node(val);
-//         if (!head) {
-//             head = newNode;
-//             return;
-//         }
-//         Node* temp = head;
-//         while (temp->next)
-//             temp = temp->next;
-//         temp->next = newNode;
+// void display(Node* head) {
+//     while (head != NULL) {
+//         cout << head->data << " -> ";
+//         head = head->next;
 //     }
-
-//     void reverse() {
-//         Node* prev = NULL;
-//         Node* curr = head;
-//         Node* next = NULL;
-
-//         while (curr != NULL) {
-//             next = curr->next;   // store next node
-//             curr->next = prev;   // reverse link
-//             prev = curr;         // move prev forward
-//             curr = next;         // move curr forward
-//         }
-
-//         head = prev; // update head
-//     }
-
-//     void display() {
-//         Node* temp = head;
-//         while (temp) {
-//             cout << temp->data << " -> ";
-//             temp = temp->next;
-//         }
-//         cout << "NULL\n";
-//     }
-// };
+//     cout << "NULL";
+// }
 
 // int main() {
-//     LinkedList l;
-//     l.insert(10);
-//     l.insert(20);
-//     l.insert(30);
-//     l.insert(40);
+//     Node* head = new Node{10, NULL};
+//     head->next = new Node{20, NULL};
+//     head->next->next = new Node{30, NULL};
+//     head->next->next->next = new Node{40, NULL};
 
-//     cout << "Original List:\n";
-//     l.display();
-
-//     l.reverse();
-
-//     cout << "Reversed List:\n";
-//     l.display();
+//     reverseList(head);
+//     display(head);
 
 //     return 0;
 // }
