@@ -2445,6 +2445,8 @@
 //   m.display();
 //     return 0;
 // }
+
+
 // 68.wap to add two matrices
 
 // #include <iostream>
@@ -2573,6 +2575,8 @@
 //         else if(ch==3) m.display();
 //     } while(ch!=4);
 // }
+
+
 
 // 70.wap to perfor dot product on two vectors
 // #include <iostream>
