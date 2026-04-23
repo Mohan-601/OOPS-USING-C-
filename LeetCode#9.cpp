@@ -23,4 +23,5 @@ public:
 int main() {
     Solution obj;
     cout << obj.isPalindrome(121);
+    return 0;
 }
