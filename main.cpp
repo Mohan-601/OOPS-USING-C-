@@ -5499,3 +5499,975 @@
 //     return 0;
 // }
 
+
+
+
+// 155. LeetCode #66 — Plus One
+
+// Problem:
+// Given a number represented as an array of digits, increment it by one.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     vector<int> plusOne(vector<int>& digits) {
+//         for(int i=digits.size()-1;i>=0;i--){
+//             if(digits[i]<9){
+//                 digits[i]++;
+//                 return digits;
+//             }
+//             digits[i]=0;
+//         }
+//         digits.insert(digits.begin(),1);
+//         return digits;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> digits = {9,9,9};
+//     vector<int> res = obj.plusOne(digits);
+//     for(int x:res) cout<<x;
+// }
+
+
+// 156. LeetCode #118 — Pascal's Triangle
+
+// Problem:
+// Generate the first numRows of Pascal’s triangle.
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     vector<vector<int>> generate(int numRows) {
+//         vector<vector<int>> res;
+//         for(int i=0;i<numRows;i++){
+//             vector<int> row(i+1,1);
+//             for(int j=1;j<i;j++){
+//                 row[j] = res[i-1][j-1] + res[i-1][j];
+//             }
+//             res.push_back(row);
+//         }
+//         return res;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     int n = 5;
+//     vector<vector<int>> res = obj.generate(n);
+//     for(auto row: res){
+//         for(int x:row) cout<<x<<" ";
+//         cout<<endl;
+//     }
+// }
+
+
+// 157. LeetCode #209 — Minimum Size Subarray Sum
+
+// Problem:
+// Given an array of positive integers nums and an integer target, return the minimal length of a
+// contiguous subarray whose sum ≥ target. If none, return 0.
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int minSubArrayLen(int target, vector<int>& nums) {
+//         int left=0, sum=0, minLen=INT_MAX;
+//         for(int right=0; right<nums.size(); right++){
+//             sum += nums[right];
+//             while(sum >= target){
+//                 minLen = min(minLen, right-left+1);
+//                 sum -= nums[left++];
+//             }
+//         }
+//         return minLen == INT_MAX ? 0 : minLen;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {2,3,1,2,4,3};
+//     cout << obj.minSubArrayLen(7, nums);
+// }
+
+
+
+// 158. LeetCode #560 — Subarray Sum Equals K
+
+// Problem:
+// Given an integer array nums and integer k, return total number of continuous subarrays whose sum equals k.
+
+// #include <iostream>
+// #include <vector>
+// #include <unordered_map>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int subarraySum(vector<int>& nums, int k) {
+//         unordered_map<int,int> mp;
+//         mp[0] = 1;
+//         int sum = 0, count = 0;
+
+//         for(int n : nums){
+//             sum += n;
+//             if(mp.count(sum - k))
+//                 count += mp[sum - k];
+//             mp[sum]++;
+//         }
+//         return count;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {1,1,1};
+//     cout << obj.subarraySum(nums,2);
+// }
+
+
+// 159. LeetCode #238 — Product of Array Except Self
+
+// Problem:
+// Return an array such that each element is the product of all other elements except itself. No division allowed.
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     vector<int> productExceptSelf(vector<int>& nums) {
+//         int n = nums.size();
+//         vector<int> res(n,1);
+
+//         int prefix = 1;
+//         for(int i=0;i<n;i++){
+//             res[i] = prefix;
+//             prefix *= nums[i];
+//         }
+
+//         int suffix = 1;
+//         for(int i=n-1;i>=0;i--){
+//             res[i] *= suffix;
+//             suffix *= nums[i];
+//         }
+//         return res;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {1,2,3,4};
+//     vector<int> res = obj.productExceptSelf(nums);
+//     for(int x:res) cout<<x<<" ";
+// }
+
+
+// 160. LeetCode #152 — Maximum Product Subarray
+
+// Problem:
+// Find contiguous subarray with the largest product.
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int maxProduct(vector<int>& nums) {
+//         int maxProd = nums[0], minProd = nums[0], result = nums[0];
+
+//         for(int i=1;i<nums.size();i++){
+//             if(nums[i] < 0) swap(maxProd, minProd);
+
+//             maxProd = max(nums[i], maxProd * nums[i]);
+//             minProd = min(nums[i], minProd * nums[i]);
+
+//             result = max(result, maxProd);
+//         }
+//         return result;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {2,3,-2,4};
+//     cout << obj.maxProduct(nums);
+// }
+
+
+// 161. LeetCode #11 — Container With Most Water
+
+// Problem:
+// Find two lines that together with x-axis form a container holding the most water.
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int maxArea(vector<int>& height) {
+//         int left=0, right=height.size()-1;
+//         int maxWater = 0;
+
+//         while(left < right){
+//             int h = min(height[left], height[right]);
+//             maxWater = max(maxWater, h * (right-left));
+
+//             if(height[left] < height[right]) left++;
+//             else right--;
+//         }
+//         return maxWater;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> h = {1,8,6,2,5,4,8,3,7};
+//     cout << obj.maxArea(h);
+// }
+
+
+// 162. LeetCode #41 — First Missing Positive
+// Problem:
+// Given an unsorted integer array nums, return the smallest missing positive integer.
+// Constraint: must run in O(n) time and use constant extra space.
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int firstMissingPositive(vector<int>& nums) {
+//         int n = nums.size();
+
+//         for(int i=0;i<n;i++){
+//             while(nums[i] > 0 && nums[i] <= n && nums[nums[i]-1] != nums[i]){
+//                 swap(nums[i], nums[nums[i]-1]);
+//             }
+//         }
+
+//         for(int i=0;i<n;i++){
+//             if(nums[i] != i+1) return i+1;
+//         }
+//         return n+1;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {3,4,-1,1};
+//     cout << obj.firstMissingPositive(nums);
+// }
+
+
+
+// 163. LeetCode #128 — Longest Consecutive Sequence
+// Problem:
+// Given an unsorted array, return the length of the longest consecutive elements sequence.
+// Must run in O(n) time.
+
+
+// #include <iostream>
+// #include <vector>
+// #include <unordered_set>
+// using namespace std;
+
+// class Solution {
+// public:
+//     int longestConsecutive(vector<int>& nums) {
+//         unordered_set<int> s(nums.begin(), nums.end());
+//         int longest = 0;
+
+//         for(int num : s){
+//             if(!s.count(num-1)){ // start of sequence
+//                 int curr = num;
+//                 int streak = 1;
+
+//                 while(s.count(curr+1)){
+//                     curr++;
+//                     streak++;
+//                 }
+//                 longest = max(longest, streak);
+//             }
+//         }
+//         return longest;
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {100,4,200,1,3,2};
+//     cout << obj.longestConsecutive(nums);
+// }
+
+
+
+
+// 164. LeetCode #75 — Sort Colors
+
+// Problem:
+// Sort an array containing only 0, 1, and 2 (dutch National Flag problem) in-place.
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Solution {
+// public:
+//     void sortColors(vector<int>& nums) {
+//         int low = 0, mid = 0, high = nums.size()-1;
+
+//         while(mid <= high){
+//             if(nums[mid] == 0){
+//                 swap(nums[low++], nums[mid++]);
+//             }
+//             else if(nums[mid] == 1){
+//                 mid++;
+//             }
+//             else{
+//                 swap(nums[mid], nums[high--]);
+//             }
+//         }
+//     }
+// };
+
+// int main() {
+//     Solution obj;
+//     vector<int> nums = {2,0,2,1,1,0};
+//     obj.sortColors(nums);
+//     for(int x:nums) cout<<x<<" ";
+// }
+
+
+
+// 165 LeetCode #24 — Swap Nodes in Pairs
+
+// #include <iostream>
+// using namespace std;
+
+// class ListNode{
+// public:
+//     int val;
+//     ListNode* next;
+//     ListNode(int x):val(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     ListNode* swapPairs(ListNode* head){
+//         ListNode dummy(0);
+//         dummy.next=head;
+//         ListNode* curr=&dummy;
+
+//         while(curr->next && curr->next->next){
+//             ListNode* first=curr->next;
+//             ListNode* second=curr->next->next;
+
+//             first->next=second->next;
+//             second->next=first;
+//             curr->next=second;
+
+//             curr=first;
+//         }
+//         return dummy.next;
+//     }
+// };
+
+// void print(ListNode* head){
+//     while(head){ cout<<head->val<<" "; head=head->next; }
+//     cout<<endl;
+// }
+
+// int main(){
+//     ListNode* head=new ListNode(1);
+//     head->next=new ListNode(2);
+//     head->next->next=new ListNode(3);
+//     head->next->next->next=new ListNode(4);
+
+//     Solution s;
+//     head=s.swapPairs(head);
+//     print(head);
+// }
+
+
+// 166 LeetCode #61 — Rotate List
+
+// #include <iostream>
+// using namespace std;
+
+// class ListNode{
+// public:
+//     int val;
+//     ListNode* next;
+//     ListNode(int x):val(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     ListNode* rotateRight(ListNode* head,int k){
+//         if(!head || !head->next) return head;
+
+//         int len=1;
+//         ListNode* tail=head;
+//         while(tail->next){
+//             tail=tail->next;
+//             len++;
+//         }
+
+//         tail->next=head;
+//         k%=len;
+//         int steps=len-k;
+
+//         while(steps--) tail=tail->next;
+
+//         ListNode* newHead=tail->next;
+//         tail->next=nullptr;
+
+//         return newHead;
+//     }
+// };
+
+// void print(ListNode* head){
+//     while(head){ cout<<head->val<<" "; head=head->next; }
+//     cout<<endl;
+// }
+
+// int main(){
+//     ListNode* head=new ListNode(1);
+//     head->next=new ListNode(2);
+//     head->next->next=new ListNode(3);
+
+//     Solution s;
+//     head=s.rotateRight(head,1);
+//     print(head);
+// }
+
+// 167 LeetCode #92 — Reverse Linked List II
+
+
+// #include <iostream>
+// using namespace std;
+
+// class ListNode{
+// public:
+//     int val;
+//     ListNode* next;
+//     ListNode(int x):val(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     ListNode* reverseBetween(ListNode* head,int left,int right){
+//         ListNode dummy(0);
+//         dummy.next=head;
+
+//         ListNode* prev=&dummy;
+//         for(int i=1;i<left;i++) prev=prev->next;
+
+//         ListNode* curr=prev->next;
+
+//         for(int i=0;i<right-left;i++){
+//             ListNode* temp=curr->next;
+//             curr->next=temp->next;
+//             temp->next=prev->next;
+//             prev->next=temp;
+//         }
+
+//         return dummy.next;
+//     }
+// };
+
+// void print(ListNode* head){
+//     while(head){ cout<<head->val<<" "; head=head->next; }
+//     cout<<endl;
+// }
+
+// int main(){
+//     ListNode* head=new ListNode(1);
+//     head->next=new ListNode(2);
+//     head->next->next=new ListNode(3);
+//     head->next->next->next=new ListNode(4);
+
+//     Solution s;
+//     head=s.reverseBetween(head,2,3);
+//     print(head);
+// }
+
+
+// 168 LeetCode #138 — Copy List with Random Pointer
+
+// #include <iostream>
+// #include <unordered_map>
+// using namespace std;
+
+// class Node{
+// public:
+//     int val;
+//     Node* next;
+//     Node* random;
+//     Node(int x):val(x),next(nullptr),random(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     Node* copyRandomList(Node* head){
+//         unordered_map<Node*,Node*> mp;
+
+//         Node* curr=head;
+//         while(curr){
+//             mp[curr]=new Node(curr->val);
+//             curr=curr->next;
+//         }
+
+//         curr=head;
+//         while(curr){
+//             mp[curr]->next=mp[curr->next];
+//             mp[curr]->random=mp[curr->random];
+//             curr=curr->next;
+//         }
+
+//         return mp[head];
+//     }
+// };
+
+// void print(Node* head){
+//     while(head){
+//         cout<<head->val<<" ";
+//         head=head->next;
+//     }
+//     cout<<endl;
+// }
+
+// int main(){
+//     Node* head=new Node(1);
+//     head->next=new Node(2);
+//     head->random=head->next;
+
+//     Solution s;
+//     Node* copy=s.copyRandomList(head);
+
+//     print(copy);
+// }
+
+// 169 LeetCode #143 — Reorder List
+
+// #include <iostream>
+// using namespace std;
+
+// class ListNode{
+// public:
+//     int val;
+//     ListNode* next;
+//     ListNode(int x):val(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     void reorderList(ListNode* head){
+//         if(!head) return;
+
+//         ListNode *slow=head,*fast=head;
+//         while(fast->next && fast->next->next){
+//             slow=slow->next;
+//             fast=fast->next->next;
+//         }
+
+//         ListNode* prev=nullptr;
+//         ListNode* curr=slow->next;
+//         while(curr){
+//             ListNode* next=curr->next;
+//             curr->next=prev;
+//             prev=curr;
+//             curr=next;
+//         }
+
+//         slow->next=nullptr;
+
+//         ListNode* first=head;
+//         ListNode* second=prev;
+
+//         while(second){
+//             ListNode* t1=first->next;
+//             ListNode* t2=second->next;
+
+//             first->next=second;
+//             second->next=t1;
+
+//             first=t1;
+//             second=t2;
+//         }
+//     }
+// };
+
+// void print(ListNode* head){
+//     while(head){ cout<<head->val<<" "; head=head->next; }
+//     cout<<endl;
+// }
+
+// int main(){
+//     ListNode* head=new ListNode(1);
+//     head->next=new ListNode(2);
+//     head->next->next=new ListNode(3);
+//     head->next->next->next=new ListNode(4);
+
+//     Solution s;
+//     s.reorderList(head);
+//     print(head);
+// }
+
+// 170 LeetCode #147 — Insertion Sort List
+
+// #include <iostream>
+// using namespace std;
+
+// class ListNode{
+// public:
+//     int val;
+//     ListNode* next;
+//     ListNode(int x):val(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     ListNode* insertionSortList(ListNode* head){
+//         ListNode dummy(0);
+
+//         while(head){
+//             ListNode* curr=head;
+//             head=head->next;
+
+//             ListNode* prev=&dummy;
+//             while(prev->next && prev->next->val < curr->val)
+//                 prev=prev->next;
+
+//             curr->next=prev->next;
+//             prev->next=curr;
+//         }
+//         return dummy.next;
+//     }
+// };
+
+// int main(){
+//     ListNode* head=new ListNode(4);
+//     head->next=new ListNode(2);
+//     head->next->next=new ListNode(1);
+
+//     Solution s;
+//     head=s.insertionSortList(head);
+
+//     while(head){ cout<<head->val<<" "; head=head->next; }
+// }
+
+// 171 LeetCode #203 — Remove Elements
+
+// #include <iostream>
+// using namespace std;
+
+// class ListNode{
+// public:
+//     int val;
+//     ListNode* next;
+//     ListNode(int x):val(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     ListNode* removeElements(ListNode* head,int val){
+//         ListNode dummy(0);
+//         dummy.next=head;
+
+//         ListNode* curr=&dummy;
+//         while(curr->next){
+//             if(curr->next->val==val)
+//                 curr->next=curr->next->next;
+//             else curr=curr->next;
+//         }
+//         return dummy.next;
+//     }
+// };
+
+// int main(){
+//     ListNode* head=new ListNode(1);
+//     head->next=new ListNode(2);
+//     head->next->next=new ListNode(6);
+
+//     Solution s;
+//     head=s.removeElements(head,6);
+
+//     while(head){ cout<<head->val<<" "; head=head->next; }
+// }
+
+// 172 LeetCode #725 — Split List in Parts
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class ListNode{
+// public:
+//     int val;
+//     ListNode* next;
+//     ListNode(int x):val(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     vector<ListNode*> splitListToParts(ListNode* head,int k){
+//         vector<ListNode*> res(k,nullptr);
+
+//         int len=0;
+//         ListNode* temp=head;
+//         while(temp){ len++; temp=temp->next; }
+
+//         int size=len/k, extra=len%k;
+
+//         for(int i=0;i<k;i++){
+//             res[i]=head;
+//             int currSize=size+(i<extra);
+
+//             for(int j=0;j<currSize-1;j++) head=head->next;
+
+//             if(head){
+//                 ListNode* next=head->next;
+//                 head->next=nullptr;
+//                 head=next;
+//             }
+//         }
+//         return res;
+//     }
+// };
+
+// int main(){
+//     ListNode* head=new ListNode(1);
+//     head->next=new ListNode(2);
+//     head->next->next=new ListNode(3);
+
+//     Solution s;
+//     vector<ListNode*> res=s.splitListToParts(head,2);
+
+//     for(auto h:res){
+//         while(h){ cout<<h->val<<" "; h=h->next; }
+//         cout<<"| ";
+//     }
+// }
+
+// 173 HackerRank — Merge Sorted Lists
+
+// #include <iostream>
+// using namespace std;
+
+// class Node{
+// public:
+//     int data;
+//     Node* next;
+//     Node(int x):data(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     Node* mergeLists(Node* head1,Node* head2){
+//         Node dummy(0),*tail=&dummy;
+
+//         while(head1 && head2){
+//             if(head1->data<head2->data){
+//                 tail->next=head1;
+//                 head1=head1->next;
+//             } else{
+//                 tail->next=head2;
+//                 head2=head2->next;
+//             }
+//             tail=tail->next;
+//         }
+//         tail->next=head1?head1:head2;
+//         return dummy.next;
+//     }
+// };
+
+// int main(){
+//     Node* a=new Node(1);
+//     a->next=new Node(3);
+
+//     Node* b=new Node(2);
+//     b->next=new Node(4);
+
+//     Solution s;
+//     Node* res=s.mergeLists(a,b);
+
+//     while(res){ cout<<res->data<<" "; res=res->next; }
+// }
+
+
+
+// 174 HackerRank — Remove duplicates
+
+// #include <iostream>
+// using namespace std;
+
+// class Node{
+// public:
+//     int data;
+//     Node* next;
+//     Node(int x):data(x),next(nullptr){}
+// };
+
+// class Solution{
+// public:
+//     Node* removeduplicates(Node* head){
+//         Node* curr=head;
+
+//         while(curr && curr->next){
+//             if(curr->data==curr->next->data)
+//                 curr->next=curr->next->next;
+//             else curr=curr->next;
+//         }
+//         return head;
+//     }
+// };
+
+// int main(){
+//     Node* head=new Node(1);
+//     head->next=new Node(1);
+//     head->next->next=new Node(2);
+
+//     Solution s;
+//     head=s.removeduplicates(head);
+
+//     while(head){ cout<<head->data<<" "; head=head->next; }
+// }
+
+
+
+// 175 HackerRank — Snake Pattern Matrix
+
+
+// #include <iostream>
+// using namespace std;
+
+// class SnakeMatrix {
+// public:
+//     void print(int n, int m) {
+//         int num = 1;
+//         for(int i = 0; i < n; i++) {
+//             if(i % 2 == 0) {
+//                 for(int j = 0; j < m; j++)
+//                     cout << num++ << " ";
+//             } else {
+//                 int temp = num + m - 1;
+//                 for(int j = 0; j < m; j++)
+//                     cout << temp-- << " ";
+//                 num += m;
+//             }
+//             cout << endl;
+            
+
+//         }
+//     }
+// };
+
+// int main() {
+//     SnakeMatrix obj;
+//     obj.print(4, 5);
+// }
+
+
+// 176. HackerRank — Concentric Star Pattern
+
+// #include <iostream>
+// using namespace std;
+
+// class ConcentricStar {
+// public:
+//     void print(int n) {
+//         int size = 2*n - 1;
+
+//         for(int i = 0; i < size; i++) {
+//             for(int j = 0; j < size; j++) {
+//                 int layer = min(min(i, j), min(size-1-i, size-1-j));
+//                 if(layer % 2 == 0) cout << "*";
+//                 else cout << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     ConcentricStar obj;
+//     obj.print(5);
+// }
+
+// 177. HackerRank — Number Spiral Pattern
+
+// #include <iostream>
+// using namespace std;
+
+// class NumberSpiral {
+// public:
+//     void print(int n) {
+//         int size = 2*n - 1;
+
+//         for(int i = 0; i < size; i++) {
+//             for(int j = 0; j < size; j++) {
+//                 int val = n - min(min(i,j), min(size-1-i, size-1-j));
+//                 cout << val << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     NumberSpiral obj;
+//     obj.print(4);
+// }
+
+
+// 178. HackerRank — Character diamond Pattern
+
+// #include <iostream>
+// using namespace std;
+
+// class Chardiamond {
+// public:
+//     void print(int n) {
+        
+//         for(int i = 0; i < n; i++) {
+//             for(int j = 0; j < n-i-1; j++) cout << " ";
+//             for(int j = 0; j <= i; j++) cout << char('A'+j);
+//             for(int j = i-1; j >= 0; j--) cout << char('A'+j);
+//             cout << endl;
+//         }
+//         for(int i = n-2; i >= 0; i--) {
+//             for(int j = 0; j < n-i-1; j++) cout << " ";
+//             for(int j = 0; j <= i; j++) cout << char('A'+j);
+//             for(int j = i-1; j >= 0; j--) cout << char('A'+j);
+//             cout << endl;
+//         }
+//     }
+// };
+
+// int main() {
+//     Chardiamond obj;
+//     obj.print(5);
+// }
+
