@@ -6471,3 +6471,395 @@
 //     obj.print(5);
 // }
 
+// 178.WAP to implement Queue using Arrays in c++
+// #include <iostream>
+// using namespace std;
+
+// class Queue {
+// private:
+//     int *arr;
+//     int front, rear, size;
+
+// public:
+//     Queue(int s) {
+//         size = s;
+//         arr = new int[size];
+//         front = -1;
+//         rear = -1;
+//     }
+
+//     void enqueue(int val) {
+//         if (rear == size - 1) {
+//             cout << "Queue Overflow\n";
+//             return;
+//         }
+//         if (front == -1) front = 0;
+//         arr[++rear] = val;
+//     }
+
+//     void dequeue() {
+//         if (front == -1 || front > rear) {
+//             cout << "Queue Underflow\n";
+//             return;
+//         }
+//         cout << "Deleted: " << arr[front++] << endl;
+//     }
+
+//     void peek() {
+//         if (front == -1 || front > rear) {
+//             cout << "Queue is empty\n";
+//             return;
+//         }
+//         cout << "Front element: " << arr[front] << endl;
+//     }
+
+//     void display() {
+//         if (front == -1 || front > rear) {
+//             cout << "Queue is empty\n";
+//             return;
+//         }
+//         for (int i = front; i <= rear; i++) {
+//             cout << arr[i] << " ";
+//         }
+//         cout << endl;
+//     }
+// };
+
+// int main() {
+//     Queue q(5);
+
+//     q.enqueue(10);
+//     q.enqueue(20);
+//     q.enqueue(30);
+
+//     q.display();
+
+//     q.dequeue();
+//     q.display();
+
+//     q.peek();
+
+//     return 0;
+// }
+
+// // 179.Wap for bankaccount system using operatorOverloading
+// #include <iostream>
+// using namespace std;
+
+// class BankAccount {
+// private:
+//     double balance;
+
+// public:
+//     BankAccount(double b = 0) {
+//         balance = b;
+//     }
+
+//     // Deposit / Merge accounts
+//     BankAccount operator + (const BankAccount &acc) {
+//         return BankAccount(balance + acc.balance);
+//     }
+
+//     // Withdraw
+//     BankAccount operator - (double amount) {
+//         return BankAccount(balance - amount);
+//     }
+
+//     // Compare
+//     bool operator > (const BankAccount &acc) {
+//         return balance > acc.balance;
+//     }
+
+//     bool operator == (const BankAccount &acc) {
+//         return balance == acc.balance;
+//     }
+
+//     // Interest (function call operator)
+//     void operator()(double rate) {
+//         balance += balance * rate / 100;
+//     }
+
+//     // Prefix ++ (bonus)
+//     BankAccount operator++() {
+//         balance += 500;
+//         return *this;
+//     }
+
+//     // Output
+//     friend ostream& operator<<(ostream &out, const BankAccount &acc) {
+//         out << "Balance: ₹" << acc.balance;
+//         return out;
+//     }
+// };
+
+// int main() {
+//     BankAccount a1(5000), a2(3000);
+
+//     BankAccount a3 = a1 + a2;   // merge
+//     a3 = a3 - 2000;             // withdraw
+
+//     ++a1;                       // bonus
+
+//     a1(10);                     // interest
+
+//     if(a1 > a2)
+//         cout << "a1 has more balance\n";
+
+//     cout << a1 << endl;
+//     cout << a3 << endl;
+
+//     return 0;
+// }
+
+// 180.Wap for shopping cart system
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Cart {
+// private:
+//     vector<double> prices;
+
+// public:
+//     // Add item
+//     Cart operator + (double price) {
+//         Cart temp = *this;
+//         temp.prices.push_back(price);
+//         return temp;
+//     }
+
+//     // Remove last item
+//     Cart operator - (int) {
+//         Cart temp = *this;
+//         if(!temp.prices.empty())
+//             temp.prices.pop_back();
+//         return temp;
+//     }
+
+//     // Access item
+//     double operator[](int index) {
+//         return prices[index];
+//     }
+
+//     // Apply discount
+//     void operator()(double discount) {
+//         for(double &p : prices)
+//             p -= p * discount / 100;
+//     }
+
+//     // Total
+//     double total() {
+//         double sum = 0;
+//         for(double p : prices)
+//             sum += p;
+//         return sum;
+//     }
+
+//     // Output
+//     friend ostream& operator<<(ostream &out, Cart &c) {
+//         out << "Cart Total: ₹" << c.total();
+//         return out;
+//     }
+// };
+
+// int main() {
+//     Cart c;
+
+//     c = c + 1000;
+//     c = c + 500;
+//     c = c + 200;
+
+//     c(10); // 10% discount
+
+//     cout << "Item[1]: " << c[1] << endl;
+
+//     cout << c << endl;
+
+//     return 0;
+// }
+
+
+
+// 181.Wap for student grading system using operator Overloading
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// class Student {
+// private:
+//     vector<int> marks;
+
+// public:
+//     // Add marks
+//     Student operator + (int m) {
+//         Student temp = *this;
+//         temp.marks.push_back(m);
+//         return temp;
+//     }
+
+//     // Access marks
+//     int operator[](int index) {
+//         return marks[index];
+//     }
+
+//     // Average
+//     double average() {
+//         int sum = 0;
+//         for(int m : marks)
+//             sum += m;
+//         return marks.size() ? (double)sum / marks.size() : 0;
+//     }
+
+//     // Compare students
+//     bool operator > (Student &s) {
+//         return average() > s.average();
+//     }
+
+//     // Output
+//     friend ostream& operator<<(ostream &out, Student &s) {
+//         out << "Average Marks: " << s.average();
+//         return out;
+//     }
+// };
+
+// int main() {
+//     Student s1, s2;
+
+//     s1 = s1 + 80;
+//     s1 = s1 + 90;
+
+//     s2 = s2 + 70;
+//     s2 = s2 + 60;
+
+//     if(s1 > s2)
+//         cout << "s1 is topper\n";
+
+//     cout << s1 << endl;
+//     cout << s2 << endl;
+
+//     return 0;
+// }
+
+// 182.WAP for TimeDurationSystem
+// #include <iostream>
+// using namespace std;
+
+// class Time {
+// private:
+//     int hours, minutes;
+
+//     void normalize() {
+//         hours += minutes / 60;
+//         minutes %= 60;
+//     }
+
+// public:
+//     Time(int h=0, int m=0) {
+//         hours = h;
+//         minutes = m;
+//         normalize();
+//     }
+
+//     // Add time
+//     Time operator + (const Time &t) {
+//         return Time(hours + t.hours, minutes + t.minutes);
+//     }
+
+//     // Subtract time
+//     Time operator - (const Time &t) {
+//         int total1 = hours*60 + minutes;
+//         int total2 = t.hours*60 + t.minutes;
+//         int diff = total1 - total2;
+//         return Time(diff/60, diff%60);
+//     }
+
+//     // Compare
+//     bool operator > (const Time &t) {
+//         return (hours*60 + minutes) > (t.hours*60 + t.minutes);
+//     }
+
+//     // Increment minute
+//     Time operator++() {
+//         minutes++;
+//         normalize();
+//         return *this;
+//     }
+
+//     // Output
+//     friend ostream& operator<<(ostream &out, const Time &t) {
+//         out << t.hours << "h " << t.minutes << "m";
+//         return out;
+//     }
+// };
+
+// int main() {
+//     Time t1(2, 50), t2(1, 30);
+
+//     Time t3 = t1 + t2;
+//     Time t4 = t1 - t2;
+
+//     ++t1;
+
+//     if(t1 > t2)
+//         cout << "t1 is greater\n";
+
+//     cout << t3 << endl;
+//     cout << t4 << endl;
+
+//     return 0;
+// }
+
+
+// 183.Wap For Complex Number Calculator
+// #include <iostream>
+// using namespace std;
+
+// class Complex {
+// private:
+//     double real, imag;
+
+// public:
+//     Complex(double r=0, double i=0) {
+//         real = r;
+//         imag = i;
+//     }
+
+//     // Addition
+//     Complex operator + (const Complex &c) {
+//         return Complex(real + c.real, imag + c.imag);
+//     }
+
+//     // Subtraction
+//     Complex operator - (const Complex &c) {
+//         return Complex(real - c.real, imag - c.imag);
+//     }
+
+//     // Multiplication
+//     Complex operator * (const Complex &c) {
+//         return Complex(real*c.real - imag*c.imag,
+//                        real*c.imag + imag*c.real);
+//     }
+
+//     // Equality
+//     bool operator == (const Complex &c) {
+//         return real == c.real && imag == c.imag;
+//     }
+
+//     // Output
+//     friend ostream& operator<<(ostream &out, const Complex &c) {
+//         out << c.real << " + " << c.imag << "i";
+//         return out;
+//     }
+// };
+
+// int main() {
+//     Complex c1(2,3), c2(1,4);
+
+//     Complex c3 = c1 + c2;
+//     Complex c4 = c1 * c2;
+
+//     cout << c3 << endl;
+//     cout << c4 << endl;
+
+//     return 0;
+// }

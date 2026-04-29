@@ -1,0 +1,6 @@
+USER: hello
+AI: Hello! How can I assist you today?
+
+USER: solve intergral of x square
+AI: To solve the integral of \\(x^2\\), we need to find the antiderivative of \\(x^2\\) with respect to \\(x\\).\n\nThe general rule for integrating powers is that if you have \\(\\int x^n \\, dx\\), where \\(n \\neq -1\\), then:\n\\[\n\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C\n\\]\nwhere \\(C\\) is the constant of integration.\n\nFor the specific case of \\(x^2\\):\n\\[\n\\int x^2 \\, dx\n\\]\n\nLet's apply the formula with \\(n=2\\):\n\n\\[\n\\int x^2 \\, dx = \\frac{x^{2+1}}{2+1} + C = \\frac{x^3}{3} + C\n\\]\n\nSo, the integral of \\(x^2\\) is:\n\\[\n\\boxed{\\frac{x^3}{3} + C}\n\\]
+
